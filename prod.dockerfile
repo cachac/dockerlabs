@@ -20,8 +20,8 @@ EXPOSE 8080
 
 CMD ["nginx", "-g", "daemon off;"]
 
-# docker build . -f prod.dockerfile -t docker-labs
-# docker run -p 80:8080  docker-labs:latest
+# docker build . -f prod.dockerfile -t dockerlabs
+# docker run -p 80:8080  dockerlabs:latest
 
 
 
