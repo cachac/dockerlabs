@@ -22,6 +22,3 @@ CMD ["nginx", "-g", "daemon off;"]
 
 # docker build . -f prod.dockerfile -t dockerlabs
 # docker run -p 80:8080  dockerlabs:latest
-
-
-

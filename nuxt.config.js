@@ -21,7 +21,7 @@ export default {
 
   css: [],
 
-  plugins: [{ src: '~/plugins/containerID', mode: 'server' }],
+  // plugins: [{ src: '~/plugins/containerID', mode: 'server' }],
 
   components: true,
 
@@ -30,4 +30,8 @@ export default {
   modules: [],
 
   build: {},
+
+  publicRuntimeConfig: {
+    NUXT_ENV_APP: process.env.NUXT_ENV_APP || '',
+  },
 }
