@@ -1,0 +1,84 @@
+version: "3.7"
+networks:
+  net-lab:
+    name: net-lab
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 11.0.0.0/27
+          gateway: 11.0.0.1
+
+services:
+  loadbalancer:
+    container_name: loadbalancer
+    build:
+      dockerfile: loadbalancer.dockerfile
+      context: .
+    image: loadbalancer
+    hostname: loadbalancer
+    restart: unless-stopped # on-failure
+
+    ports:
+      - 80:80
+    networks:
+      net-lab:
+        ipv4_address: 11.0.0.2
+
+  multidocker_v1:
+    container_name: multidocker_v1
+    build:
+      dockerfile: multi.dockerfile
+      context: .
+      args:
+        NUXT_ENV_APP: v1
+    image: multidocker:v1
+    hostname: multidocker
+    restart: unless-stopped # on-failure
+
+    ports:
+      - 8080:8080
+    networks:
+      net-lab:
+        ipv4_address: 11.0.0.3
+    depends_on:
+      - loadbalancer
+
+  multidocker_v2:
+    container_name: multidocker_v2
+    build:
+      dockerfile: multi.dockerfile
+      context: .
+      args:
+        NUXT_ENV_APP: v2
+    image: multidocker:v2
+    hostname: multidocker
+    restart: unless-stopped
+
+    ports:
+      - 8081:8080
+    networks:
+      net-lab:
+        ipv4_address: 11.0.0.4
+    depends_on:
+      - loadbalancer
+
+  multidocker_v3:
+    container_name: multidocker_v3
+    build:
+      dockerfile: multi.dockerfile
+      context: .
+      args:
+        NUXT_ENV_APP: v3
+    image: multidocker:v3
+    hostname: multidocker
+    restart: unless-stopped
+
+    ports:
+      - 8082:8080
+    networks:
+      net-lab:
+        ipv4_address: 11.0.0.5
+    depends_on:
+      - loadbalancer
+
