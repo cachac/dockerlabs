@@ -1,9 +1,9 @@
 version: "3.7"
 
-networks:
-  net-todo-compose-app:
-    name: net-todo-compose-app
-    driver: bridge
+# networks:
+#   net-todo-compose-app:
+#     name: net-todo-compose-app
+#     driver: bridge
 
 services:
   app:
@@ -20,8 +20,8 @@ services:
       MYSQL_USER: root
       MYSQL_PASSWORD: 12345
       MYSQL_DB: todos
-    networks:
-      - net-todo-compose-app
+    # networks:
+    #   - "net-todo-compose-app"
     restart: unless-stopped
     depends_on:
       - mysql
@@ -34,8 +34,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 12345
       MYSQL_DATABASE: todos
-    networks:
-      - net-todo-compose-app
+    # networks:
+    #   - "net-todo-compose-app"
     restart: unless-stopped
 
 volumes:

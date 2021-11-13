@@ -38,7 +38,7 @@ services:
     restart: unless-stopped # on-failure
 
     ports:
-      - 8080:8080
+      - 8083:8080
     networks:
       net-lab:
         ipv4_address: 11.0.0.3
