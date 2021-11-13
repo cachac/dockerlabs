@@ -1,0 +1,47 @@
+version: "3.7"
+
+networks:
+  net-todo-compose-app:
+    name: net-todo-compose-app
+    driver: bridge
+
+services:
+  app:
+    container_name: todo-app
+    image: node:12-alpine
+    command: sh -c "yarn install && yarn run dev"
+    ports:
+      - 3000:3000
+    working_dir: /app
+    volumes:
+      - ../:/app
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 12345
+      MYSQL_DB: todos
+    networks:
+      - net-todo-compose-app
+    restart: unless-stopped
+    depends_on:
+      - mysql
+
+  mysql:
+    container_name: db-todo-app
+    image: mysql:5.7
+    volumes:
+      - todo-mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_DATABASE: todos
+    networks:
+      - net-todo-compose-app
+    restart: unless-stopped
+
+volumes:
+  todo-mysql-data:
+
+
+
+
+
