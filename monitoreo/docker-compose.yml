@@ -45,6 +45,14 @@ services:
     depends_on:
     - redis
 
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: nodeexporter
+    ports:
+    - 9100:9100
+    networks:
+    - net-monitoreo
+
   redis:
     image: redis:latest
     container_name: redis

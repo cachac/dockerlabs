@@ -1,7 +1,14 @@
-scrape_configs:
-- job_name: cadvisor
+global:
   scrape_interval: 5s
-  static_configs:
-  - targets:
-    - cadvisor:8080
-    # ip:port
+  external_labels:
+    monitor: 'Monitoring'
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['prometheus:9090']
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['nodeexporter:9100']
+  - job_name: 'cAdvisor'
+    static_configs:
+      - targets: ['cAdvisor:8080']
