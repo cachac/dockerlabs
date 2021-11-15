@@ -29,11 +29,11 @@ resource "google_compute_instance" "lab" {
     access_config {}
 	}
 
-	# metadata = {
-	# 	ssh-keys = "${var.username}:${tls_private_key.global_key.public_key_openssh}",
-	# 	user-data = templatefile("/conf/template.sh",
-	# 		{
-	# 			lab      = "1"
-	# 	})
-  # }
+	metadata = {
+		ssh-keys = "${var.username}:${tls_private_key.global_key.public_key_openssh}",
+		# user-data = templatefile("/conf/template.sh",
+		# 	{
+		# 		lab      = "1"
+		# })
+  }
 }
