@@ -15,7 +15,7 @@ resource "google_compute_instance" "lab" {
       image = data.google_compute_image.master_image.self_link
 			size  = var.disk_size
 			type  = var.disk_type
-			# zone  = var.gcp_zone_a
+
 			labels = merge({
 				name = var.subdomain
 				},
@@ -31,9 +31,9 @@ resource "google_compute_instance" "lab" {
 
 	metadata = {
 		ssh-keys = "${var.username}:${tls_private_key.global_key.public_key_openssh}",
-		# user-data = templatefile("/conf/template.sh",
-		# 	{
-		# 		lab      = "1"
-		# })
+		user-data = templatefile("../conf/template.sh",
+			{
+				username      = var.username
+		})
   }
 }

@@ -4,8 +4,13 @@ resource "tls_private_key" "global_key" {
   rsa_bits  = 2048
 }
 resource "local_file" "ssh_private_key_pem" {
-  filename          = "../keys/prod/id_rsa"
+  filename          = "../keys/prod/id_rsa02"
   sensitive_content = tls_private_key.global_key.private_key_pem
+  file_permission   = "0600"
+}
+resource "local_file" "ssh_public_key_pem" {
+  filename          = "../keys/prod/id_rsa02.pub"
+  sensitive_content = tls_private_key.global_key.public_key_pem
   file_permission   = "0600"
 }
 
