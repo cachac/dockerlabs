@@ -36,6 +36,4 @@ resource "google_compute_instance" "lab" {
 	# 			lab      = "1"
 	# 	})
   # }
-
-
 }
