@@ -104,3 +104,5 @@ dist
 .tern-port
 
 dockerlabs_key.json
+keys/
+/keys/*
