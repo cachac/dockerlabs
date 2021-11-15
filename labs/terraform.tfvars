@@ -1,7 +1,7 @@
-gcp_account_json = "../../keys/prod/dockerlabs_key.json"
+gcp_account_json = "keys/prod/dockerlabs_key.json"
 
 # Project to deploy resources into
-gcp_project = "dockerlabs"
+gcp_project = "dockerlabs-332203"
 
 # GCP region for all resources
 gcp_region = "us-east1"
@@ -30,15 +30,14 @@ machine_type = "f1-micro"
 disk_size = "10"
 disk_type = "pd-standard"
 
-# domain   			= "birdscode.tk"
-domain       = "dockerlabs.tk"
-subdomain1   = "lab"
+domain       = "dockerlabs"
+subdomain   = "lab"
 username     = "dockerlab"
 fullname     = "Carlos Ch"
 host_prefix  = "lab"
 vpc_name     = "dockerlabs-network"
 vpc_ip_range = "10.0.0.0/24"
-ip_member   = "10.0.0.11"
+ip_lab   = "10.0.0.11"
 fw_name      = "fw-dockerlabs"
 
 

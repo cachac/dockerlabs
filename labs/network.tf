@@ -20,7 +20,7 @@ resource "google_compute_firewall" "dockerlabs_fw_allowall" {
 
   allow {
     protocol = "tcp"
-    ports    = [var.port, "22", "80", "443", "1000-9999"]
+    ports    = ["22", "80", "443", "1000-9999"]
   }
 
   source_ranges = ["0.0.0.0/0"]

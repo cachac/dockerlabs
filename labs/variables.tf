@@ -88,10 +88,6 @@ variable "fw_name" {
   type = string
 }
 
-variable "port" {
-  type = string
-}
-
 variable "ip_lab" {
   type = string
 }
@@ -99,5 +95,9 @@ variable "ip_lab" {
 variable "default_tags" {
   type        = map(any)
   description = "AWS tags."
+}
+
+variable "instance_count" {
+	type        = string
 }
 
