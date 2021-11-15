@@ -23,6 +23,10 @@ services:
     # networks:
     #   - "net-todo-compose-app"
     restart: unless-stopped
+    mem_limit: 50m
+    # mem_reservation: 100m
+    memswap_limit: 50m
+    cpus: 0.3
     depends_on:
       - mysql
 
@@ -37,6 +41,10 @@ services:
     # networks:
     #   - "net-todo-compose-app"
     restart: unless-stopped
+    mem_limit: 200m
+    # mem_reservation: 100m
+    memswap_limit: 200m
+    cpus: 0.5
 
 volumes:
   todo-mysql-data:

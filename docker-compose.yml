@@ -19,6 +19,10 @@ services:
     image: loadbalancer
     hostname: loadbalancer
     restart: unless-stopped # on-failure
+    mem_limit: 50m
+    # mem_reservation: 100m
+    memswap_limit: 50m
+    cpus: 0.3
 
     ports:
       - 80:80
@@ -36,6 +40,10 @@ services:
     image: multidocker:v1
     hostname: multidocker
     restart: unless-stopped # on-failure
+    mem_limit: 50m
+    # mem_reservation: 100m
+    memswap_limit: 50m
+    cpus: 0.3
 
     ports:
       - 8083:8080
@@ -55,6 +63,10 @@ services:
     image: multidocker:v2
     hostname: multidocker
     restart: unless-stopped
+    mem_limit: 50m
+    # mem_reservation: 100m
+    memswap_limit: 50m
+    cpus: 0.3
 
     ports:
       - 8081:8080
@@ -74,6 +86,10 @@ services:
     image: multidocker:v3
     hostname: multidocker
     restart: unless-stopped
+    mem_limit: 50m
+    # mem_reservation: 100m
+    memswap_limit: 50m
+    cpus: 0.3
 
     ports:
       - 8082:8080

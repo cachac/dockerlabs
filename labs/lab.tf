@@ -29,12 +29,7 @@ resource "google_compute_instance" "lab" {
   }
 
   network_interface {
-    network    = google_compute_network.dockerlabs_network.id
-    subnetwork = google_compute_subnetwork.dockerlabs_subnet.id
-    # network_ip = google_compute_address.dockerlabs_internal_address11.address
-
-    # access_config {
-    #   nat_ip = google_compute_address.dockerlabs_external_address01.address
-    # }
-  }
+    network = "default"
+    access_config {}
+	}
 }
