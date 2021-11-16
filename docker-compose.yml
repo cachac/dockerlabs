@@ -46,7 +46,7 @@ services:
     cpus: 0.3
 
     ports:
-      - 8083:8080
+      - 8081:8080
     networks:
       net-lab:
         ipv4_address: 11.0.0.3
@@ -69,7 +69,7 @@ services:
     cpus: 0.3
 
     ports:
-      - 8081:8080
+      - 8082:8080
     networks:
       net-lab:
         ipv4_address: 11.0.0.4
@@ -92,7 +92,7 @@ services:
     cpus: 0.3
 
     ports:
-      - 8082:8080
+      - 8083:8080
     networks:
       net-lab:
         ipv4_address: 11.0.0.5
