@@ -24,6 +24,13 @@ services:
     memswap_limit: 50m
     cpus: 0.3
 
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost"]
+      interval: 30s #1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
     ports:
       - 80:80
     networks:
@@ -44,6 +51,13 @@ services:
     # mem_reservation: 100m
     memswap_limit: 50m
     cpus: 0.3
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081"]
+      interval: 30s #1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
 
     ports:
       - 8081:8080
@@ -68,6 +82,13 @@ services:
     memswap_limit: 50m
     cpus: 0.3
 
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8082"]
+      interval: 30s #1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
     ports:
       - 8082:8080
     networks:
@@ -90,6 +111,13 @@ services:
     # mem_reservation: 100m
     memswap_limit: 50m
     cpus: 0.3
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8083"]
+      interval: 30s #1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
 
     ports:
       - 8083:8080
