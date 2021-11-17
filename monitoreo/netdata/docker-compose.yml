@@ -1,0 +1,33 @@
+version: '3'
+services:
+  netdata:
+    image: netdata/netdata
+    container_name: netdata
+    hostname: localhost
+    ports:
+      - 19999:19999
+    restart: unless-stopped
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - apparmor:unconfined
+    volumes:
+      - netdataconfig:/etc/netdata
+      - netdatalib:/var/lib/netdata
+      - netdatacache:/var/cache/netdata
+      - /etc/passwd:/host/etc/passwd:ro
+      - /etc/group:/host/etc/group:ro
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /etc/os-release:/host/etc/os-release:ro
+      # pendiente: agregar plugin para monitoreo de contenedores
+      # - ./netdata.conf:/etc/netdata/netdata.conf:ro
+    environment:
+      - NETDATA_CLAIM_TOKEN=tUWOrwux_1W2J9EtCBwfipJiNNyUDkSonNc8_qFmU7QKxDIWe5TJcqq35xjVJl4MVePfqUj_Z2eFiTmKAtoT0EmNWjr0sF6EIb3Xj41zPf41rqhdyxBNJj3W7UUyho-own1souU
+      - NETDATA_CLAIM_URL=https://app.netdata.cloud
+      - NETDATA_CLAIM_ROOMS=09cf6d99-4e6b-4ccf-9dee-2502fd2925d6
+
+volumes:
+  netdataconfig:
+  netdatalib:
+  netdatacache:
