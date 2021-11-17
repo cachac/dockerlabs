@@ -10,8 +10,8 @@ networks:
           gateway: 12.0.0.1
 
 volumes:
-  grafana:
-  prometheus:
+  grafana-data: {}
+  prometheus-data: {}
 
 services:
   prometheus:
@@ -27,7 +27,7 @@ services:
     - --config.file=/etc/prometheus/prometheus.yml
     volumes:
     - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
-    - prometheus:/prometheus
+    - prometheus-data:/prometheus
     networks:
     - net-monitoreo
 
@@ -65,6 +65,7 @@ services:
     networks:
     - net-monitoreo
 
+  # servicio demo para probar métricas
   redis:
     image: redis:latest
     container_name: redis
@@ -83,7 +84,7 @@ services:
     memswap_limit: 200m
     cpus: 0.5
     volumes:
-    - grafana:/var/lib/grafana
+    - grafana-data:/var/lib/grafana
     ports:
     - 3000:3000
     networks:
