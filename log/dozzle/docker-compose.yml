@@ -1,9 +1,10 @@
-version: '2'
+version: "3"
 services:
   dozzle:
-    image: amir20/dozzle:latest
     container_name: dozzle
-    ports:
-      - 8888:8080
+    image: amir20/dozzle:latest
     volumes:
+      # socket de comunicación REST-API entre contenedores.
       - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 9999:8080
