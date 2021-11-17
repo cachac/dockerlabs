@@ -31,6 +31,12 @@ services:
       retries: 3
       start_period: 30s
 
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://localhost:5000"
+        tag: "loadbalancer"
+
     ports:
       - 80:80
     networks:

@@ -53,7 +53,7 @@ and the config file format should have this content
 
 ```yaml
 GF_SECURITY_ADMIN_USER=admin
-GF_SECURITY_ADMIN_PASSWORD=changeme
+GF_SECURITY_ADMIN_PASSWORD=password
 GF_USERS_ALLOW_SIGN_UP=false
 ```
 
