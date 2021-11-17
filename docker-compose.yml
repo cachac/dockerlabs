@@ -53,7 +53,7 @@ services:
     cpus: 0.3
 
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8081"]
+      test: ["CMD", "curl", "-f", "http://localhost:8080"]
       interval: 30s #1m30s
       timeout: 10s
       retries: 3
@@ -83,7 +83,7 @@ services:
     cpus: 0.3
 
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8082"]
+      test: ["CMD", "curl", "-f", "http://localhost:8080"]
       interval: 30s #1m30s
       timeout: 10s
       retries: 3
@@ -113,7 +113,7 @@ services:
     cpus: 0.3
 
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8083"]
+      test: ["CMD", "curl", "-f", "http://localhost:8080"]
       interval: 30s #1m30s
       timeout: 10s
       retries: 3
