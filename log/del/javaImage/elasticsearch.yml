@@ -1,1 +1,0 @@
-cluster.name: docker-examplenode.name: docker-node-1path.data: /home/esuser/datanetwork.host:0.0.0.0
