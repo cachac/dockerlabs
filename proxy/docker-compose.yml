@@ -6,13 +6,27 @@ services:
     restart: always
     ports:
       - 80:80
+      - 443:443
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
+      - certs:/etc/nginx/certs:ro
+      - vhostd:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+    labels:
+      - com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy
 
-  # whoami:
-  #   image: jwilder/whoami
-  #   environment:
-  #     - VIRTUAL_HOST=whoami.local
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    restart: always
+    environment:
+      - NGINX_PROXY_CONTAINER=nginx-proxy
+    volumes:
+      - certs:/etc/nginx/certs:rw
+      - vhostd:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+
   dockerlabs:
     image: nginx
     container_name: dockerlabs
@@ -23,3 +37,13 @@ services:
       - ../Hello_docker.html:/usr/share/nginx/html/index.html:ro
     environment:
       - VIRTUAL_HOST=dockerlabs.tk,www.dockerlabs.tk
+      - LETSENCRYPT_HOST=dockerlabs.tk,www.dockerlabs.tk
+      - LETSENCRYPT_EMAIL=info@dockerlabs.com
+    depends_on:
+      - nginx-proxy
+      - letsencrypt
+
+volumes:
+  certs: {}
+  html: {}
+  vhostd: {}
