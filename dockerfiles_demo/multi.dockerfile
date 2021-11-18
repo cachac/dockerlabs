@@ -3,8 +3,8 @@ FROM cachac/dockerlabs_base:node14 as build
 
 WORKDIR /usr/src/app
 
-ARG NUXT_ENV_APP
-ENV NUXT_ENV_APP=$NUXT_ENV_APP
+# ARG NUXT_ENV_APP
+# ENV NUXT_ENV_APP=$NUXT_ENV_APP
 
 ### STAGE 2: NGINX ###
 FROM nginx:stable-alpine
