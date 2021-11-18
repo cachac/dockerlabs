@@ -1,8 +1,8 @@
 version: "3.7"
 
 networks:
-  net-lab:
-    name: net-lab
+  net-lab-compose:
+    name: net-lab-compose
     driver: bridge
     ipam:
       driver: default
@@ -40,7 +40,7 @@ services:
     ports:
       - 80:80
     networks:
-      net-lab:
+      net-lab-compose:
         ipv4_address: 11.0.0.2
     depends_on:
       - multidocker_v1
@@ -72,7 +72,7 @@ services:
     ports:
       - 8081:8080
     networks:
-      net-lab:
+      net-lab-compose:
         ipv4_address: 11.0.0.3
 
   multidocker_v2:
@@ -100,7 +100,7 @@ services:
     ports:
       - 8082:8080
     networks:
-      net-lab:
+      net-lab-compose:
         ipv4_address: 11.0.0.4
 
   multidocker_v3:
@@ -128,7 +128,7 @@ services:
     ports:
       - 8083:8080
     networks:
-      net-lab:
+      net-lab-compose:
         ipv4_address: 11.0.0.5
 
 
