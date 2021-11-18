@@ -14,7 +14,7 @@ services:
   loadbalancer:
     container_name: loadbalancer
     build:
-      dockerfile: loadbalancer.dockerfile
+      dockerfile: ./dockerfiles_demo/loadbalancer.dockerfile
       context: .
     image: loadbalancer
     hostname: loadbalancer
@@ -46,7 +46,7 @@ services:
   multidocker_v1:
     container_name: multidocker_v1
     build:
-      dockerfile: multi.dockerfile
+      dockerfile: ./dockerfiles_demo/multi.dockerfile
       context: .
       args:
         NUXT_ENV_APP: v1
@@ -76,7 +76,7 @@ services:
   multidocker_v2:
     container_name: multidocker_v2
     build:
-      dockerfile: multi.dockerfile
+      dockerfile: ./dockerfiles_demo/multi.dockerfile
       context: .
       args:
         NUXT_ENV_APP: v2
@@ -106,7 +106,7 @@ services:
   multidocker_v3:
     container_name: multidocker_v3
     build:
-      dockerfile: multi.dockerfile
+      dockerfile: ./dockerfiles_demo/multi.dockerfile
       context: .
       args:
         NUXT_ENV_APP: v3
