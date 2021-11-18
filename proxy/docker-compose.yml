@@ -29,7 +29,7 @@ services:
 
   dockerlabs:
     image: nginx
-    container_name: dockerlabs
+    container_name: dockerlabs_web
     restart: always
     expose:
       - 80
