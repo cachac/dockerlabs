@@ -1,5 +1,5 @@
 ### STAGE 1: Build ###
-FROM node:14.11.0-alpine3.12 as build
+FROM node:latest as build
 
 WORKDIR /usr/src/app
 
@@ -11,7 +11,7 @@ RUN npm run generate --fail-on-error
 RUN npm prune --production
 
 ### STAGE 2: NGINX ###
-FROM nginx:stable-alpine
+FROM nginx:stable-alpine as release
 COPY --from=build /usr/src/app/dist /usr/share/nginx/html
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx/nginx.conf /etc/nginx/conf.d
