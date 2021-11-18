@@ -14,7 +14,7 @@ services:
   loadbalancer:
     container_name: loadbalancer
     build:
-      dockerfile: ./dockerfiles_demo/loadbalancer.dockerfile
+      dockerfile: ../dockerfiles_demo/loadbalancer.dockerfile
       context: .
     image: loadbalancer
     hostname: loadbalancer
@@ -42,11 +42,15 @@ services:
     networks:
       net-lab:
         ipv4_address: 11.0.0.2
+    depends_on:
+      - multidocker_v1
+      - multidocker_v2
+      - multidocker_v3
 
   multidocker_v1:
     container_name: multidocker_v1
     build:
-      dockerfile: ./dockerfiles_demo/multi.dockerfile
+      dockerfile: ../dockerfiles_demo/multi.dockerfile
       context: .
       args:
         NUXT_ENV_APP: v1
@@ -70,13 +74,11 @@ services:
     networks:
       net-lab:
         ipv4_address: 11.0.0.3
-    depends_on:
-      - loadbalancer
 
   multidocker_v2:
     container_name: multidocker_v2
     build:
-      dockerfile: ./dockerfiles_demo/multi.dockerfile
+      dockerfile: ../dockerfiles_demo/multi.dockerfile
       context: .
       args:
         NUXT_ENV_APP: v2
@@ -100,13 +102,11 @@ services:
     networks:
       net-lab:
         ipv4_address: 11.0.0.4
-    depends_on:
-      - loadbalancer
 
   multidocker_v3:
     container_name: multidocker_v3
     build:
-      dockerfile: ./dockerfiles_demo/multi.dockerfile
+      dockerfile: ../dockerfiles_demo/multi.dockerfile
       context: .
       args:
         NUXT_ENV_APP: v3
@@ -130,6 +130,5 @@ services:
     networks:
       net-lab:
         ipv4_address: 11.0.0.5
-    depends_on:
-      - loadbalancer
+
 
