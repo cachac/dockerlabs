@@ -15,6 +15,7 @@ services:
   #     - VIRTUAL_HOST=whoami.local
   dockerlabs:
     image: nginx
+    container_name: dockerlabs
     restart: always
     expose:
       - 80
