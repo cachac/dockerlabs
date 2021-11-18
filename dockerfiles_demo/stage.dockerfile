@@ -1,14 +1,7 @@
 ### STAGE 1: Build ###
-FROM node:latest as build
+FROM cachac/dockerlabs_base:node14 as build
 
 WORKDIR /usr/src/app
-
-COPY package.json /usr/src/app/package.json
-RUN npm install --silent
-
-COPY . /usr/src/app
-RUN npm run generate --fail-on-error
-RUN npm prune --production
 
 ### STAGE 2: NGINX ###
 FROM nginx:stable-alpine as release
