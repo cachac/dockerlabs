@@ -44,6 +44,6 @@ services:
       - letsencrypt
 
 volumes:
-  certs: {}
-  html: {}
-  vhostd: {}
+  certs:
+  html:
+  vhostd:
