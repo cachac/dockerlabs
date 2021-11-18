@@ -28,7 +28,6 @@ services:
 
   dockerlabs:
     image: nginx
-    container_name: dockerlabs_web
     restart: always
     expose:
       - 80
@@ -37,6 +36,21 @@ services:
     environment:
       - VIRTUAL_HOST=dockerlabs.tk,www.dockerlabs.tk
       - LETSENCRYPT_HOST=dockerlabs.tk,www.dockerlabs.tk
+      - LETSENCRYPT_EMAIL=info@dockerlabs.com
+    depends_on:
+      - nginx-proxy
+      - letsencrypt
+
+  dockerlabs-alt:
+    image: nginx
+    restart: always
+    expose:
+      - 80
+    volumes:
+      - ./Hello_docker_alt.html:/usr/share/nginx/html/index.html:ro
+    environment:
+      - VIRTUAL_HOST=alt.dockerlabs.tk,www.alt.dockerlabs.tk
+      - LETSENCRYPT_HOST=alt.dockerlabs.tk,www.alt.dockerlabs.tk
       - LETSENCRYPT_EMAIL=info@dockerlabs.com
     depends_on:
       - nginx-proxy
