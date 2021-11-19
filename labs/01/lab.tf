@@ -31,7 +31,7 @@ resource "google_compute_instance" "lab" {
 
 	metadata = {
 		# ssh-keys = "${var.username}:${tls_private_key.global_key.public_key_openssh}",
-		ssh-keys = "${var.username}:${file("../keys/prod/labkey.pub")}"
+		ssh-keys = "${var.username}:${file("../keys/prod/labkey.pub")}",
 		user-data = templatefile("../conf/template.sh",
 			{
 				username      = var.username
