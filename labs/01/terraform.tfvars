@@ -30,7 +30,7 @@ machine_type = "e2-medium"
 # machine_type = "e2-standard-2"
 
 # Disk
-disk_size = "10"
+disk_size = "30"
 disk_type = "pd-standard"
 
 domain       = "dockerlabs"
