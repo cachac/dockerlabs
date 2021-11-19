@@ -3,6 +3,11 @@ variable "gcp_account_json" {
   description = "File path and name of service account access token file."
 }
 
+variable "ssh_pub_key" {
+  type        = string
+  description = "File path of ssh public key"
+}
+
 variable "gcp_project" {
   type        = string
   description = "GCP project in which the quickstart will be deployed."

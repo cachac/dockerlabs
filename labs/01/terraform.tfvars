@@ -1,4 +1,5 @@
 gcp_account_json = "../keys/prod/dockerlabs_key.json"
+ssh_pub_key = "../keys/prod/labkey.pub"
 
 # Project to deploy resources into
 gcp_project = "dockerlabs-332203"
@@ -22,9 +23,11 @@ prefix = "lab-"
 # 2cpu-1gb = 7.99
 # machine_type = "e2-micro"
 # 2cpu-2ram = $12.23
-machine_type = "e2-small"
-# 2cpu-4ram = $25
-# machine_type = "e2-medium"
+# machine_type = "e2-small"
+# 2cpu-4ram = $28.65
+machine_type = "e2-medium"
+# 2cpu-8ram = $56.19
+# machine_type = "e2-standard-2"
 
 # Disk
 disk_size = "10"

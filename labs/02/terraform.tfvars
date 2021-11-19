@@ -1,4 +1,5 @@
 gcp_account_json = "../keys/prod/dockerlabs_key.json"
+ssh_pub_key = "../keys/prod/labkey.pub"
 
 # Project to deploy resources into
 gcp_project = "dockerlabs-332203"
