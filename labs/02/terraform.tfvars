@@ -16,13 +16,13 @@ prefix = "lab-"
 
 # Compute instance size of all created instances
 # 1cpu-600mb
-machine_type = "f1-micro"
+# machine_type = "f1-micro"
 # 1cpu-1.7gb = $13.80
 # machine_type = "g1-small"
-# 2cpu-1gb
+# 2cpu-1gb = $7.99
 # machine_type = "e2-micro"
 # 2cpu-2ram = $12.23
-# machine_type = "e2-small"
+machine_type = "e2-small"
 # 2cpu-4ram = $25
 # machine_type = "e2-medium"
 

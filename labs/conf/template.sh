@@ -9,3 +9,8 @@ mkdir -p /home/${username}/.ssh
 cp ~/.ssh/authorized_keys /home/${username}/.ssh/
 chown ${username}:${username} /home/${username}/.ssh/authorized_keys
 chmod 600  /home/${username}/.ssh/authorized_keys
+
+# docker
+curl -fsSL https://get.docker.com -o get-docker.sh | sh
+sudo usermod -aG docker ${username}
+newgrp docker
