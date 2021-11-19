@@ -37,6 +37,11 @@ services:
       - VIRTUAL_HOST=dockerlabs.tk,www.dockerlabs.tk
       - LETSENCRYPT_HOST=dockerlabs.tk,www.dockerlabs.tk
       - LETSENCRYPT_EMAIL=info@dockerlabs.com
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://localhost:5000"
+        tag: "multidocker"
     depends_on:
       - nginx-proxy
       - letsencrypt
@@ -52,6 +57,11 @@ services:
       - VIRTUAL_HOST=alt.dockerlabs.tk,www.alt.dockerlabs.tk
       - LETSENCRYPT_HOST=alt.dockerlabs.tk,www.alt.dockerlabs.tk
       - LETSENCRYPT_EMAIL=info@dockerlabs.com
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://localhost:5000"
+        tag: "multidocker"
     depends_on:
       - nginx-proxy
       - letsencrypt

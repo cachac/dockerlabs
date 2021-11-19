@@ -1,4 +1,4 @@
-version: "3.7"
+version: '3.7'
 
 networks:
   net-lab-compose:
@@ -25,7 +25,7 @@ services:
     cpus: 0.3
 
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost"]
+      test: ['CMD', 'curl', '-f', 'http://localhost']
       interval: 30s #1m30s
       timeout: 10s
       retries: 3
@@ -34,8 +34,8 @@ services:
     logging:
       driver: gelf
       options:
-        gelf-address: "udp://localhost:5000"
-        tag: "loadbalancer"
+        gelf-address: 'udp://localhost:5000'
+        tag: 'loadbalancer'
 
     ports:
       - 80:80
@@ -63,11 +63,17 @@ services:
     cpus: 0.3
 
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080"]
+      test: ['CMD', 'curl', '-f', 'http://localhost:8080']
       interval: 30s #1m30s
       timeout: 10s
       retries: 3
       start_period: 30s
+
+    logging:
+      driver: gelf
+      options:
+        gelf-address: 'udp://localhost:5000'
+        tag: 'multidocker'
 
     ports:
       - 8081:8080
@@ -91,11 +97,17 @@ services:
     cpus: 0.3
 
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080"]
+      test: ['CMD', 'curl', '-f', 'http://localhost:8080']
       interval: 30s #1m30s
       timeout: 10s
       retries: 3
       start_period: 30s
+
+    logging:
+      driver: gelf
+      options:
+        gelf-address: 'udp://localhost:5000'
+        tag: 'multidocker'
 
     ports:
       - 8082:8080
@@ -119,16 +131,20 @@ services:
     cpus: 0.3
 
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080"]
+      test: ['CMD', 'curl', '-f', 'http://localhost:8080']
       interval: 30s #1m30s
       timeout: 10s
       retries: 3
       start_period: 30s
+
+    logging:
+      driver: gelf
+      options:
+        gelf-address: 'udp://localhost:5000'
+        tag: 'multidocker'
 
     ports:
       - 8083:8080
     networks:
       net-lab-compose:
         ipv4_address: 11.0.0.5
-
-
