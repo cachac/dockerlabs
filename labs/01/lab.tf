@@ -1,3 +1,17 @@
+# resource "google_compute_address" "kube_internal_address01" {
+#   name         = "docker-internal-address01"
+#   # subnetwork   = google_compute_subnetwork.k3s_subnet.id
+#   address_type = "INTERNAL"
+#   # address      = format("%s.%s","10.0.0.", count.index + 11)
+#   region       = var.gcp_region
+# }
+
+resource "google_compute_address" "docker_external_address" {
+  count = var.instance_count
+  # name   = "docker-external-address01"
+  name   = "${var.subdomain}-${count.index + 1}"
+  region = var.gcp_region
+}
 resource "google_compute_instance" "lab" {
   count        = var.instance_count
   name         = "${var.subdomain}-${count.index + 1}"
@@ -24,9 +38,17 @@ resource "google_compute_instance" "lab" {
     }
   }
 
+  # network_interface {
+  #   network = "default"
+  #   access_config {}
+  # }
+
   network_interface {
     network = "default"
-    access_config {}
+
+    access_config {
+      nat_ip = google_compute_address.docker_external_address[count.index].address
+    }
   }
 
   metadata = {
