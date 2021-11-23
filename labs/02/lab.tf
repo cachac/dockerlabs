@@ -9,7 +9,7 @@
 resource "google_compute_address" "docker_external_address" {
   count = var.instance_count
   # name   = "docker-external-address01"
-  name   = "${var.subdomain}-${count.index + 1}"
+  name   = "${var.subdomain}-${count.index + 9}"
   region = var.gcp_region
 }
 resource "google_compute_instance" "lab" {
@@ -40,9 +40,11 @@ resource "google_compute_instance" "lab" {
 
   network_interface {
     network = "default"
-    access_config {}
-  }
 
+    access_config {
+      nat_ip = google_compute_address.docker_external_address[count.index].address
+    }
+  }
   metadata = {
     # ssh-keys = "${var.username}:${tls_private_key.global_key.public_key_openssh}"
     ssh-keys = "${var.username}:${file(var.ssh_pub_key)}"

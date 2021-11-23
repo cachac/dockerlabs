@@ -10,7 +10,7 @@
 
 resource "google_dns_record_set" "dockerlabs_tk" {
   count      = var.instance_count
-  name       = format("%s%s.%s.%s.", var.subdomain, count.index + 1, var.domain, "tk")
+  name       = format("%s%s.%s.%s.", var.subdomain, count.index + 9, var.domain, "tk")
 
   type         = "A"
   ttl          = 300
