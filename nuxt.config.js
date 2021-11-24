@@ -6,6 +6,7 @@ export default {
     port: 8080,
   },
   head: {
+    // title: 'kube-labs',
     title: 'docker-labs',
     htmlAttrs: {
       lang: 'en',
