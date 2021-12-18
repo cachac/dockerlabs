@@ -140,3 +140,9 @@ services:
       - monitor-net
     labels:
       org.label-schema.group: "monitoring"
+
+  nginx-exporter:
+    image: nginx/nginx-prometheus-exporter:0.8.0
+    command:
+      - -nginx.scrape-uri
+      - http://127.0.0.1/nginx_status
