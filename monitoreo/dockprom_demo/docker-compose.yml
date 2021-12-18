@@ -143,6 +143,11 @@ services:
 
   nginx-exporter:
     image: nginx/nginx-prometheus-exporter:0.8.0
+    container_name: nginx-exporter
+    expose:
+      - 80
+    networks:
+      - monitor-net
     command:
       - -nginx.scrape-uri
       - http://127.0.0.1/nginx_status
