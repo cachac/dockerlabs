@@ -142,12 +142,12 @@ services:
       org.label-schema.group: "monitoring"
 
   nginx-exporter:
-    image: nginx/nginx-prometheus-exporter:0.8.0
+    image: nginx/nginx-prometheus-exporter:0.9.0
     container_name: nginx-exporter
     expose:
-      - 80
+      - 9113:9113
     networks:
       - monitor-net
     command:
       - -nginx.scrape-uri
-      - http://127.0.0.1/nginx_status
+      - http://54.235.129.113/nginx_status
