@@ -1,4 +1,4 @@
-# 1. Comandos <!-- omit in TOC -->
+# 3. Comandos <!-- omit in TOC -->
 
 > [Comandos](https://www.docker.com/sites/default/files/d8/2019-09/docker-cheat-sheet.pdf )
 
@@ -174,7 +174,7 @@ docker rm -f <contenedor>
 
 ```
 > -f = para forzar si el contenedor está corriendo
-## 16. Eliminar imagen
+## 16. Eliminar todas las imágenes
 ```vim
 docker rmi <id>
 

@@ -1,4 +1,4 @@
-# 1. Ciclo de vida <!-- omit in TOC -->
+# 2. Ciclo de vida <!-- omit in TOC -->
 
 ## 1. Crear imagen
 ```vim
