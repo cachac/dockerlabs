@@ -6,9 +6,8 @@ ENV AUTOR=$AUTOR
 
 WORKDIR /usr/share/nginx/html
 
-COPY Hello_docker.html /usr/share/nginx/html
+COPY Hello_docker.html .
 
-RUN cd /usr/share/nginx/html && sed -e s/Docker/"$AUTOR"/ Hello_docker.html > index.html ;
+RUN sed -e s/Docker/"$AUTOR"/ Hello_docker.html > index.html ;
 
 CMD ["nginx", "-g", "daemon off;"]
-

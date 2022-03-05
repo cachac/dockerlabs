@@ -1,4 +1,4 @@
-# 4. Dockerfile <!-- omit in TOC -->
+# 5. Dockerfile <!-- omit in TOC -->
 
 > [Best Practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
@@ -66,14 +66,19 @@ Step 6/6 : CMD nginx -g 'daemon off;'
 ```vim
 docker run -d --name website -p 8080:80 demowebsite:1.0
 
-docker logs -f website
+docker ps
 ```
 
 > Expone el puerto 8080 en el host y el puerto 80 a lo interno del contenedor
 
+> 0.0.0.0:8080->80/tcp, :::8080->80/tcp
+
 ![docker](https://raw.githubusercontent.com/cachac/dockerlabs/main/static/assets/img/Dockerlabs-Docker%20Ports-Nginx.png)
 
-
+## Ver logs
+```vim
+docker logs -f website
+```
 ## 4.1. Probar el sitio web
 Con la ip pública del host o el dominio <'lab'>.dockerlabs.tk
 
