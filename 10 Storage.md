@@ -1,7 +1,7 @@
 # 10. Storage <!-- omit in TOC -->
 
 # Crear Punto de montaje (bind mount)
-```do
+```docker
 
 docker run -d --rm --name demo-mount -p 80:80 nginx:stable-alpine
 
