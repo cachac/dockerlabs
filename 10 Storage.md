@@ -101,7 +101,13 @@ watch cat /data/doc.txt
 ```
 
 ### 4.1.2. En demo-vol2
-
+```vim
 docker exec -it demo-vol2 bash
 
 echo este archivo ha sido modificado desde DEMO-VOL2 > /data/doc.txt
+```
+
+## Limpieza
+```vim
+docker rm -f $(docker ps -a -f status=running -q) && docker image prune
+```
