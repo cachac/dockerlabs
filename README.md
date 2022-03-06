@@ -13,7 +13,7 @@ Tabla de contenido:
 ## 05. [Dockerfile](/05%20Dockerfile.md)
 ## 06. [Desarrollo](/06%20Desarrollando.md)
 ## 07. [Networking](/07%20Networking.md)
-## 09. [Confianza de Contenido](/05%20Dockerfile.md)
+## 08. [Confianza de Contenido](/05%20Dockerfile.md)
 ## 09. [Dockerfile](/05%20Dockerfile.md)
 ## 05. [Dockerfile](/05%20Dockerfile.md)
 

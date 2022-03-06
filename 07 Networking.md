@@ -126,3 +126,12 @@ docker exec host_b ip a
 # El diagrama final quedaría así:
 
 ![docker](./static/assets/img/network.png)
+
+# Limpieza
+```vim
+docker rm -f $(docker ps -a -f status=running -q)
+
+docker image prune
+```
+> [Tips para eliminar](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes)
+
