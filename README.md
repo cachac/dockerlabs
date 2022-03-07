@@ -18,12 +18,5 @@ Tabla de contenido:
 ## 10. [Storage](/10%20Storage.md)
 ## 11. [Práctica](/11%20Practica.md)
 ## 12. [Compose](/12%20Compose.md)
-## 13. [Compose](/13%20Practica%20Extra.md)
-
-
-
-
-
-
-![docker](https://raw.githubusercontent.com/cachac/dockerlabs/main/static/assets/img/base-node.png)
-
+## 13. [Práctica Extra](/13%20Practica%20Extra.md)
+## 14. [Monitoreo](/13%20Practica%20Extra.md)
