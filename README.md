@@ -15,7 +15,10 @@ Tabla de contenido:
 ## 07. [Networking](/07%20Networking.md)
 ## 08. [Confianza de Contenido](/08%20Confianza.md)
 ## 09. [Recursos](/09%20Recursos.md)
-## 10. [Storage]()
+## 10. [Storage](/10%20Storage.md)
+## 11. [Storage](/11.%20Practica.md)
+## 12. [Storage](/12.Compose.md)
+
 
 
 
