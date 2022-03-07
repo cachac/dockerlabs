@@ -18,7 +18,7 @@ services:
       context: .
     image: loadbalancer
     hostname: loadbalancer
-    restart: unless-stopped # on-failure
+    restart: always # unless-stopped # on-failure
     mem_limit: 50m
     # mem_reservation: 100m
     memswap_limit: 50m
@@ -38,7 +38,7 @@ services:
         tag: 'loadbalancer'
 
     ports:
-      - 80:80
+      - 8080:80
     networks:
       net-lab-compose:
         ipv4_address: 11.0.0.2
@@ -56,7 +56,7 @@ services:
         NUXT_ENV_APP: v1
     image: multidocker:v1
     hostname: multidocker
-    restart: unless-stopped # on-failure
+    restart: always # unless-stopped # on-failure
     mem_limit: 50m
     # mem_reservation: 100m
     memswap_limit: 50m
@@ -90,7 +90,7 @@ services:
         NUXT_ENV_APP: v2
     image: multidocker:v2
     hostname: multidocker
-    restart: unless-stopped
+    restart: always # unless-stopped
     mem_limit: 50m
     # mem_reservation: 100m
     memswap_limit: 50m
@@ -124,7 +124,7 @@ services:
         NUXT_ENV_APP: v3
     image: multidocker:v3
     hostname: multidocker
-    restart: unless-stopped
+    restart: always # unless-stopped
     mem_limit: 50m
     # mem_reservation: 100m
     memswap_limit: 50m

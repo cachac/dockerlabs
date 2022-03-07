@@ -1,0 +1,10 @@
+version: '3.7'
+services:
+  dockerlabs:
+    container_name: dockerlabs
+    image: dockerlabs:version_compose
+    build:
+      dockerfile: ./stage.dockerfile
+      context: .
+    ports:
+      - 8080:8080
