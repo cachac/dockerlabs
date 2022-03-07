@@ -1,32 +1,36 @@
-version: "3.7"
+version: '3.7'
 
 services:
   app:
-    image: node:12-alpine
-    command: sh -c "yarn install && yarn run dev"
-    ports:
-      - 8080:3000
-    working_dir: /app
+    container_name: todo-username
+    image: cachac/todo-demo:1.0
     restart: unless-stopped
+
     mem_limit: 50m
     cpus: 0.3
-    volumes:
-      - ./:/app
+
+    ports:
+      - 8080:3000
+
     environment:
       MYSQL_HOST: mysql
       MYSQL_USER: root
       MYSQL_PASSWORD: 12345
       MYSQL_DB: todos
+
     depends_on:
       - mysql
 
   mysql:
+    container_name: db-username
     image: mysql:5.7
-    volumes:
-      - todo-mysql-data:/var/lib/mysql
+
     environment:
       MYSQL_ROOT_PASSWORD: 12345
       MYSQL_DATABASE: todos
 
+    volumes:
+      - todo-mysql-data:/var/lib/mysql
+
 volumes:
-  todo-mysql-data:
+  todo-mysql-data: {}

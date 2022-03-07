@@ -4,13 +4,13 @@ services:
   todo:
     container_name: todo-username
     image: cachac/todo-demo:1.0
-    restart: always
+    restart: unless-stopped
 
     mem_limit: 50m
     cpus: 0.3
 
     ports:
-      - 8087:3000
+      - 8080:3000
 
     volumes:
       - todo-data:/etc/todos

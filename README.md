@@ -16,8 +16,10 @@ Tabla de contenido:
 ## 08. [Confianza de Contenido](/08%20Confianza.md)
 ## 09. [Recursos](/09%20Recursos.md)
 ## 10. [Storage](/10%20Storage.md)
-## 11. [Práctica](/11.%20Practica.md)
-## 12. [Compose](/12.Compose.md)
+## 11. [Práctica](/11%20Practica.md)
+## 12. [Compose](/12%20Compose.md)
+## 13. [Compose](/13%20Practica%20Extra.md)
+
 
 
 

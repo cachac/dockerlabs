@@ -31,6 +31,11 @@ services:
       context: .
 ```
 
+Error conocido:
+> ERROR: yaml.scanner.ScannerError: while scanning for the next token
+>
+> Sucede al insertar caracteres "basura" al copiar y pegar en la terminal
+
 # 3. Construir la imágen
 > [Info](https://docs.docker.com/compose/reference/build/)
 
