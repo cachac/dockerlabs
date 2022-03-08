@@ -31,9 +31,13 @@ services:
       timeout: 10s
       retries: 3
       start_period: 30s
+    logging:
+      driver: gelf
+      options:
+        gelf-address: 'udp://localhost:5000'
+        tag: 'loadbalancer'
     depends_on:
       - multidocker
-
   multidocker:
     image: cachac/docker-labs
     hostname: multidocker
@@ -49,3 +53,8 @@ services:
       timeout: 10s
       retries: 3
       start_period: 30s
+    logging:
+      driver: gelf
+      options:
+        gelf-address: 'udp://localhost:5000'
+        tag: 'loadbalancer'
