@@ -42,3 +42,7 @@ Resultado:
 
 # 8. Bajar y subir la imagen, y comprobar persistencia.
 
+# 9. Limpieza
+```vim
+docker rm -f $(docker ps -a -f status=running -q) && docker image prune
+```

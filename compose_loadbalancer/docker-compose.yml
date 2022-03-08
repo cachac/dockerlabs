@@ -13,138 +13,39 @@ networks:
 services:
   loadbalancer:
     container_name: loadbalancer
-    build:
-      dockerfile: ../dockerfiles_demo/loadbalancer.dockerfile
-      context: .
-    image: loadbalancer
+    image: nginx:stable-alpine
     hostname: loadbalancer
-    restart: always # unless-stopped # on-failure
+    restart: always
     mem_limit: 50m
-    # mem_reservation: 100m
     memswap_limit: 50m
     cpus: 0.3
-
+    ports:
+    - 8080:80
+    networks:
+      net-lab-compose:
+    volumes:
+      - ./dockerfiles_demo/nginx-loadbalancer.conf:/etc/nginx/conf.d/default.conf
     healthcheck:
       test: ['CMD', 'curl', '-f', 'http://localhost']
       interval: 30s #1m30s
       timeout: 10s
       retries: 3
       start_period: 30s
-
-    logging:
-      driver: gelf
-      options:
-        gelf-address: 'udp://localhost:5000'
-        tag: 'loadbalancer'
-
-    ports:
-      - 8080:80
-    networks:
-      net-lab-compose:
-        ipv4_address: 11.0.0.2
     depends_on:
-      - multidocker_v1
-      - multidocker_v2
-      - multidocker_v3
+      - multidocker
 
-  multidocker_v1:
-    container_name: multidocker_v1
-    build:
-      dockerfile: ../dockerfiles_demo/multi.dockerfile
-      context: .
-      args:
-        NUXT_ENV_APP: v1
-    image: multidocker:v1
+  multidocker:
+    image: cachac:docker-labs
     hostname: multidocker
-    restart: always # unless-stopped # on-failure
+    restart: always
     mem_limit: 50m
-    # mem_reservation: 100m
     memswap_limit: 50m
     cpus: 0.3
-
+    networks:
+      net-lab-compose:
     healthcheck:
-      test: ['CMD', 'curl', '-f', 'http://localhost:8080']
+      test: ['CMD', 'curl', '-f', 'http://localhost']
       interval: 30s #1m30s
       timeout: 10s
       retries: 3
       start_period: 30s
-
-    logging:
-      driver: gelf
-      options:
-        gelf-address: 'udp://localhost:5000'
-        tag: 'multidocker'
-
-    ports:
-      - 8081:8080
-    networks:
-      net-lab-compose:
-        ipv4_address: 11.0.0.3
-
-  multidocker_v2:
-    container_name: multidocker_v2
-    build:
-      dockerfile: ../dockerfiles_demo/multi.dockerfile
-      context: .
-      args:
-        NUXT_ENV_APP: v2
-    image: multidocker:v2
-    hostname: multidocker
-    restart: always # unless-stopped
-    mem_limit: 50m
-    # mem_reservation: 100m
-    memswap_limit: 50m
-    cpus: 0.3
-
-    healthcheck:
-      test: ['CMD', 'curl', '-f', 'http://localhost:8080']
-      interval: 30s #1m30s
-      timeout: 10s
-      retries: 3
-      start_period: 30s
-
-    logging:
-      driver: gelf
-      options:
-        gelf-address: 'udp://localhost:5000'
-        tag: 'multidocker'
-
-    ports:
-      - 8082:8080
-    networks:
-      net-lab-compose:
-        ipv4_address: 11.0.0.4
-
-  multidocker_v3:
-    container_name: multidocker_v3
-    build:
-      dockerfile: ../dockerfiles_demo/multi.dockerfile
-      context: .
-      args:
-        NUXT_ENV_APP: v3
-    image: multidocker:v3
-    hostname: multidocker
-    restart: always # unless-stopped
-    mem_limit: 50m
-    # mem_reservation: 100m
-    memswap_limit: 50m
-    cpus: 0.3
-
-    healthcheck:
-      test: ['CMD', 'curl', '-f', 'http://localhost:8080']
-      interval: 30s #1m30s
-      timeout: 10s
-      retries: 3
-      start_period: 30s
-
-    logging:
-      driver: gelf
-      options:
-        gelf-address: 'udp://localhost:5000'
-        tag: 'multidocker'
-
-    ports:
-      - 8083:8080
-    networks:
-      net-lab-compose:
-        ipv4_address: 11.0.0.5

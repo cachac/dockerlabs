@@ -228,7 +228,7 @@ docker-compose up
     networks:
       net-lab-compose:
 ```
-## Actualizar el servicio loadbalancer
+## 7.10. Actualizar el servicio loadbalancer
 > Cambiar las dependencias del loadbalancer
 
 > Eliminar la ip
@@ -264,7 +264,7 @@ loadbalancer    | nginx: [emerg] host not found in upstream "multidocker_1:8080"
 loadbalancer exited with code 1
 ```
 
-## 7.10. Cambiar el contenedor loadbalancer y Mapear el archivo de configuración nginx al contenedor loadbalancer
+## 7.11. Cambiar el contenedor loadbalancer y Mapear el archivo de configuración nginx al contenedor loadbalancer
 
 > Validar la dirección del archivo a editar en el atributo: loadbalancer - dockerfile
 
@@ -282,7 +282,7 @@ loadbalancer exited with code 1
 		  - ./dockerfiles_demo/nginx-loadbalancer.conf:/etc/nginx/conf.d/default.conf:ro
 ```
 
-## 7.11. Construir, limpiar y ejecutar
+## 7.12. Construir, limpiar y ejecutar
 ```vim
 docker-compose build
 
@@ -293,17 +293,17 @@ docker-compose up -d --scale multidocker=3
 
 > Ejecuta en forma desconectada (-d)
 
-## 7.12. Listar contenedores
+## 7.13. Listar contenedores
 ```vim
 docker-compose ps
 ```
 
-## 7.13. Detener y eliminar contenedores
+## 7.14. Detener y eliminar contenedores
 ```vim
 docker-compose down
 ```
 
-## 7.14. Agregar Health Checks
+## 7.15. Agregar Health Checks
 > [Info](https://docs.docker.com/compose/compose-file/compose-file-v3/#healthcheck)
 
 ```yaml
@@ -322,7 +322,7 @@ docker-compose down
 
 > periodo de inicio de 30s
 
-## 7.15. Construir, limpiar y ejecutar
+## 7.16. Construir, limpiar y ejecutar
 ```vim
 docker-compose build
 
@@ -331,15 +331,15 @@ docker container prune
 docker-compose up -d --scale multidocker=3
 ```
 
-## 7.16. Listar contenedores y validar status healty
+## 7.17. Listar contenedores y validar status healty
 ```vim
 docker-compose ps
 ```
 
-## 7.17. Validar en browser
+## 7.18. Validar en browser
 
 
-## Limpiar
+## 7.19. Limpiar
 ```vim
 docker-compose down
 
