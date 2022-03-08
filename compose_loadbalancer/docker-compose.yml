@@ -24,7 +24,7 @@ services:
     networks:
       net-lab-compose:
     volumes:
-      - ./dockerfiles_demo/nginx-loadbalancer.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx-loadbalancer.conf:/etc/nginx/conf.d/default.conf
     healthcheck:
       test: ['CMD', 'curl', '-f', 'http://localhost']
       interval: 30s #1m30s
@@ -35,7 +35,7 @@ services:
       - multidocker
 
   multidocker:
-    image: cachac:docker-labs
+    image: cachac/docker-labs
     hostname: multidocker
     restart: always
     mem_limit: 50m

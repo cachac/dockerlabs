@@ -190,9 +190,7 @@ Agregar el bloque depends_on al servicio loadbalancer
 
 ## 7.6. Construir y ejecutar
 ```vim
-docker-compose build
-
-docker-compose up
+docker-compose up --build
 ```
 
 ## 7.7. Generar tráfico en browser y validar logs
