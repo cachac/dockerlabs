@@ -45,7 +45,7 @@ docker images
 docker run -p 8080:8080 dockerlabs:latest
 ```
 
-> Error Conocido:
+> Error Conocido: Corregirlo y volver a ejecutar
 >
 > listen tcp4 0.0.0.0:8080: bind: address already in use.
 
