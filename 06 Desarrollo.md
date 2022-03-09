@@ -79,7 +79,7 @@ docker container prune
 
 
 # 3. Crear cuenta en hub.docker.com y subir imagen
-> [Docker Hub](https://docs.docker.com/docker-hub/ )
+> [Docker Hub](https://hub.docker.com/)
 
 ```vim
 docker tag <container_id> <dockerhub user>/dockerlabs
