@@ -31,7 +31,7 @@ yarn install --production
 
 # 5. Probar en browser: http://<ip publica | dominio> y agregar tareas.
 
-# 6. Detener el contenedor docker-app, ejecutarlo de nuevo y probar en browser...
+# 6. Eliminar (rm) el contenedor docker-app, ejecutarlo de nuevo y probar en browser...
 Resultado:
 > Las tareas agregadas se han perdido 🤕
 
