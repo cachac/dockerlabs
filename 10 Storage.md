@@ -20,9 +20,11 @@ docker stop demo-mount
 docker run -d --rm --name demo-mount -p 8080:80 -v ~/dockerlabs/bind.html:/usr/share/nginx/html/index.html nginx:stable-alpine
 ```
 
+## 1.3. Comprobar en el browser
+
 > Los archivos son persistentes!!
 
-## 1.3. Editar el punto de montaje y refrescar el browser
+## 1.4. Editar el punto de montaje y refrescar el browser
 
 > Cambiar la línea #21 del archivo /dockerlabs/bind.html
 
@@ -97,17 +99,17 @@ docker run -dit --rm --name demo-vol2 -v data:/data ubuntu
 ```vim
 docker exec -it demo-vol1 bash
 
-watch cat /data/doc.txt
+watch cat /data/doc1.txt
 ```
 
 ### 4.1.2. En demo-vol2
 ```vim
 docker exec -it demo-vol2 bash
 
-echo este archivo ha sido modificado desde DEMO-VOL2 > /data/doc.txt
+echo este archivo ha sido modificado desde DEMO-VOL2 > /data/doc1.txt
 ```
 
-## Limpieza
+## 4.2. Limpieza
 ```vim
 docker rm -f $(docker ps -a -f status=running -q) && docker image prune
 ```
