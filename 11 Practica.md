@@ -35,14 +35,17 @@ yarn install --production
 Resultado:
 > Las tareas agregadas se han perdido 🤕
 
-# 7. Crear volumen para hacer la data persistente:
+# 7. Checkpoint
 
-## 7.1. Crear un volumen llamado todo-db
-## 7.2. Ejecutar y Conectar volumen al contenedor en /etc/todos
+# 8. Crear volumen para hacer la data persistente:
 
-# 8. Bajar y subir la imagen, y comprobar persistencia.
+## 8.1. Crear un volumen llamado todo-db
+## 8.2. Ejecutar y Conectar volumen al contenedor en /etc/todos
 
-# 9. Limpieza
+# 9. Bajar y subir la imagen, y comprobar persistencia.
+
+# 10. Checkpoint
+# 11. Limpieza
 ```vim
 docker rm -f $(docker ps -a -f status=running -q) && docker image prune
 ```
