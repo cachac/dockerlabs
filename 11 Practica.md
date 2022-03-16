@@ -42,7 +42,7 @@ Resultado:
 ## 8.1. Crear un volumen llamado todo-db
 ## 8.2. Ejecutar y Conectar volumen al contenedor en /etc/todos
 
-# 9. Bajar y subir la imagen, y comprobar persistencia.
+# 9. Eliminar el contenedor y crearlo de nuevo para comprobar persistencia.
 
 # 10. Checkpoint
 # 11. Limpieza
