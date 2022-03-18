@@ -70,3 +70,4 @@
 
 ## 4.6. Reiniciar los contenedores para comprobar persistencia
 
+# 5. Checkpoint
