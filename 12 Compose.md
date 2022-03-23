@@ -208,7 +208,7 @@ docker-compose up --build
 
 > Eliminar container_name
 
-> Eliminar puertos
+> Eliminar puertos (excepto Loadbalancer)
 
 > Eliminar ipv4_address
 
@@ -266,7 +266,7 @@ loadbalancer exited with code 1
 
 > Validar la dirección del archivo a editar en el atributo: loadbalancer - dockerfile
 
-> Cambiar la configuración del webserver (Nginx) con los nuevos nombres de contenedor a resolver
+> Cambiar la configuración del webserver (Nginx) con los nuevos NOMBRES de contenedor a resolver
 
 > Eliminar build
 
@@ -306,7 +306,7 @@ docker-compose down
 
 ```yaml
     healthcheck:
-      test: ['CMD', 'curl', '-f', 'http://localhost']
+      test: ['CMD', 'curl', '-f', 'http://localhost:8080']
       interval: 30s #1m30s
       timeout: 10s
       retries: 3
