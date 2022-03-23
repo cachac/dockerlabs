@@ -148,21 +148,22 @@ docker-compose build
 
 ```yaml
 multidocker_1:
-	container_name: multidocker_1
-	build:
-		dockerfile: ./stage.dockerfile
-		context: .
-	image: multidocker_1
-	hostname: multidocker_1
-	restart: always
-	mem_limit: 50m
-	memswap_limit: 50m
-	cpus: 0.3
-	ports:
-		- 8080
-	networks:
-		net-lab-compose:
-			ipv4_address: 11.0.0.3
+  container_name: multidocker_1
+  build:
+  dockerfile: ./stage.dockerfile
+  context: .
+  image: multidocker_1
+  hostname: multidocker_1
+  restart: always
+  mem_limit: 50m
+  memswap_limit: 50m
+  cpus: 0.3
+  ports:
+  - 8080
+
+  networks:
+    net-lab-compose:
+      ipv4_address: 11.0.0.3
 ```
 
 ### 7.5.4. Construir
@@ -182,10 +183,10 @@ El contenedor de Load Balancer depende de los contenedores de apps.
 
 Agregar el bloque depends_on al servicio loadbalancer
 ```yaml
-	depends_on:
-		- multidocker_1
-		- multidocker_2
-		- multidocker_3
+  depends_on:
+    - multidocker_1
+    - multidocker_2
+    - multidocker_3
 ```
 
 ## 7.6. Construir y ejecutar
@@ -275,9 +276,9 @@ loadbalancer exited with code 1
 > Crear volumen y mapearlo en modo read-only (:ro)
 
 ```yaml
-    image: nginx:stable-alpine
-		volumes:
-		  - ./dockerfiles_demo/nginx-loadbalancer.conf:/etc/nginx/conf.d/default.conf:ro
+  image: nginx:stable-alpine
+  volumes:
+    - ./dockerfiles_demo/nginx-loadbalancer.conf:/etc/nginx/conf.d/default.conf:ro
 ```
 
 ## 7.12. Construir, limpiar y ejecutar
