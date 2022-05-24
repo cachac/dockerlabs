@@ -64,7 +64,7 @@ docker-compose up
 # 6. Agregar el puerto:
 ```yaml
 ports:
-	- 8080:8080
+  - 8080:8080
 ```
 
 # 7. Construir un Docker-Compose Avanzado
@@ -123,7 +123,7 @@ networks:
     memswap_limit: 50m
     cpus: 0.3
     ports:
-    	- 8080:80
+      - 8080:80
     networks:
       net-lab-compose:
         ipv4_address: 11.0.0.2
@@ -150,8 +150,8 @@ docker-compose build
 multidocker_1:
   container_name: multidocker_1
   build:
-  dockerfile: ./stage.dockerfile
-  context: .
+    dockerfile: ./stage.dockerfile
+    context: .
   image: multidocker_1
   hostname: multidocker_1
   restart: always
