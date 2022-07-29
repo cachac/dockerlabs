@@ -16,7 +16,7 @@ pipeline {
     stage('Docker Build') {
       agent any
       steps {
-        sh 'docker build -t cachac/dockerlabs:j1.0 .'
+        sh 'docker build -f stage.dockerfile -t cachac/dockerlabs:j1.0 .'
       }
     }
   }
