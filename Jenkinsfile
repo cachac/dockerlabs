@@ -13,6 +13,8 @@ pipeline {
     //     sh 'npm install'
     //   }
     // }
+
+		// Docker Build
     stage('Docker Build') {
       agent any
       steps {
