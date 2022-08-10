@@ -11,7 +11,7 @@ Tabla de contenido:
 ## 3. [Comandos Básicos](/03%20Comandos.md)
 ## 4. [Práctica](/04%20Practica.md)
 ## 5. [Dockerfile](/05%20Dockerfile.md)
-## 6. [Desarrollo](/06%20Desarrollando.md)
+## 6. [Desarrollo](/06%20Desarrollo.md)
 ## 7. [Networking](/07%20Networking.md)
 ## 8. [Confianza de Contenido](/08%20Confianza.md)
 ## 9. [Recursos](/09%20Recursos.md)
