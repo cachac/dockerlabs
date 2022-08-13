@@ -1,0 +1,65 @@
+#!groovy
+
+// test jenkins v1.9925
+
+pipeline {
+	agent { label 'jenkinsagent'}
+
+	environment {
+		// Registry
+		registry = 'harbor.kubelabs3.tk'
+		registryCredential = 'registryCredentials'
+		namespace = 'library'
+		app = 'dockerlabs'
+		imageName= "${namespace}/${app}"
+
+		// Deploy
+		deployProj='dockerlabs-ci' // git Kustomize repo name
+		deployRepo="git@gitlab.kubelabs3.tk:jenkins/${deployProj}.git"
+		deployBranch='main'
+		overlay='/overlays/qa'
+	}
+
+	stages {
+		stage('Docker Build') {
+      		agent { label 'jenkinsagent'}
+      		steps {
+				script {
+					env.gitTag = sh(returnStdout: true, script: "git tag | tail -1").trim()
+					sh(returnStdout: true, script: "echo TAG/Version: ${env.gitTag}")
+					sh(returnStdout: true, script: "git rev-parse --short HEAD").trim()
+				}
+
+				sh "docker build -f stage.dockerfile -t ${registry}/${imageName}:${env.gitTag} ."
+      		}
+    	}
+
+		stage('Registry') {
+			steps{
+				//gitlabCommitStatus("3.Registry") {
+				script {
+					docker.withRegistry( "https://${env.registry}" , registryCredential ) {
+						sh "docker push ${registry}/${imageName}:${gitTag}"
+					}
+				}
+				//}
+			}
+    	}
+
+		stage('Kustomize') {
+			steps {
+				sh "rm -rf ${deployProj}"
+              	sh "echo Clonando repositorio deploy CI ${deployProj}"
+              	sh "git clone --single-branch --branch ${deployBranch} ${deployRepo}"
+
+				dir("${deployProj}/${overlay}"){
+					sh "kustomize edit set image kustomize-defined=${registry}/${imageName}:${gitTag}"
+					sh "cat kustomization.yaml"
+					sh 'git add kustomization.yaml'
+					sh "git commit -am 'Jenkins - CI ${app} ${overlay} version ${gitTag}' && git push"
+				}
+			}
+		}
+	}
+}
+
