@@ -265,7 +265,7 @@ loadbalancer exited with code 1
 
 ## 7.11. Cambiar el contenedor loadbalancer y Mapear el archivo de configuración nginx al contenedor loadbalancer
 
-> Validar la dirección del archivo a editar en el atributo: loadbalancer - dockerfile
+> Validar la dirección del archivo a editar en el SERVICE: loadbalancer
 
 > Cambiar la configuración del webserver (Nginx) con los nuevos NOMBRES de contenedor a resolver
 
