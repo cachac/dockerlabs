@@ -7,7 +7,7 @@ git clone https://github.com/docker/getting-started.git
 ```
 # 2. Aseguar que no hayan contenedores en ejecución
 # 3. Crear un archivo Dockerfile en getting-started/app. Con los siguientes pasos
-## 3.1. Utilizar la imagen node:12.alpine
+## 3.1. Utilizar la imagen node:12-alpine
 ## 3.2. Utilizar el comando RUN para descargar las librerias python3, g++ y make
 Utilizar:
 ```vim
