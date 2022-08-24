@@ -46,9 +46,9 @@
 
 > Variables:
 ```yaml
-		environment:
-		  MYSQL_ROOT_PASSWORD: 12345
-			MYSQL_DATABASE: todos
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_DATABASE: todos
 ```
 
 > Volumen: mapear el nuevo volumen "todo-mysql-data" con la ruta: /var/lib/mysql
@@ -56,10 +56,10 @@
 ## 4.3. Crear las variables de entorno en el servicio app
 ```yaml
     environment:
-		  MYSQL_HOST: mysql
-			MYSQL_USER: root
-			MYSQL_PASSWORD: 12345
-			MYSQL_DB: todos
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 12345
+      MYSQL_DB: todos
 ```
 
 > Recomendación: En ambientes productivos no se deben publicar archivos con información sensitiva.
