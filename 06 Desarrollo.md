@@ -82,9 +82,9 @@ docker container prune
 > [Docker Hub](https://hub.docker.com/)
 
 ```vim
-docker tag <container_id> <dockerhub user>/dockerlabs
+docker tag <image_id> <dockerhub user>/dockerlabs
 
-docker tag <container_id> cachac/dockerlabs
+docker tag <image_id> cachac/dockerlabs
 
 docker push <docker user>/dockerlabs
 ```
