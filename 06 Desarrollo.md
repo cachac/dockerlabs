@@ -84,7 +84,8 @@ docker container prune
 ```vim
 docker tag <image_id> <dockerhub user>/dockerlabs
 
-docker tag <image_id> cachac/dockerlabs
+Ejemplo:
+docker tag 12345678901234 cachac/dockerlabs
 
 docker push <docker user>/dockerlabs
 ```
