@@ -1,4 +1,4 @@
-# 4. Practica <!-- omit in TOC -->
+# 4. Práctica <!-- omit in TOC -->
 
 # 1. Descargar imagen ubuntu versión 20.04. Usar docker pull
 

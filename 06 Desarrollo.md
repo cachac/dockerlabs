@@ -1,6 +1,6 @@
 # 6. Desarrollo <!-- omit in TOC -->
 
-# 1. Dockerfile Stages: crear el archivo stage.dockerfile
+# 1. Dockerfile Stages: crear el archivo demo.dockerfile
 ```vim
 ### STAGE 1: Build ###
 FROM cachac/dockerlabs_base:node14 as build
@@ -33,9 +33,9 @@ CMD ["nginx", "-g", "daemon off;"]
 
 # 2. Construir y ejecutar
 
-## 2.1. Crear la imagen usando el archivo stage.dockerfile (-f) y el nombre dockerlabs
+## 2.1. Crear la imagen usando el archivo demo.dockerfile (-f) y el nombre dockerlabs
 ```vim
-docker build . -f stage.dockerfile -t dockerlabs
+docker build . -f demo.dockerfile -t dockerlabs
 
 docker images
 ```
