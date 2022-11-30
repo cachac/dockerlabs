@@ -9,8 +9,6 @@ Listar las estadísticas de contenedores y revisar el MEM/LIMIT
 ```vim
 docker run -d --rm --memory-swap 100m --memory 100m --name mem-demo dockerlabs
 
-docker top mem-demo
-
 docker stats
 Ó
 docker stats mem-demo
