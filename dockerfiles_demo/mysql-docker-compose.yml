@@ -1,5 +1,8 @@
 version: '3.7'
 
+volumes:
+  todo-mysql-data: {}
+
 services:
   app:
     container_name: todo-username
@@ -32,5 +35,4 @@ services:
     volumes:
       - todo-mysql-data:/var/lib/mysql
 
-volumes:
-  todo-mysql-data: {}
+
