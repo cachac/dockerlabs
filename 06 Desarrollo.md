@@ -7,7 +7,7 @@ FROM cachac/dockerlabs_base:node14 as build
 
 WORKDIR /usr/src/app
 
-### STAGE 2: NGINX ###
+### STAGE 2: Release ###
 FROM nginx:stable-alpine as release
 
 COPY --from=build /usr/src/app/dist /usr/share/nginx/html
