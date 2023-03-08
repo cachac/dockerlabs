@@ -1,6 +1,6 @@
 # 3. Comandos <!-- omit in TOC -->
 
-> [Comandos](https://www.docker.com/wp-content/uploads/2022/03/docker-cheat-sheet.pdf)
+> [Comandos](https://docs.docker.com/get-started/docker_cheatsheet.pdf)
 
 ## 1. Versión
 ```vim
