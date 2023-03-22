@@ -38,6 +38,15 @@ docker inspect demo-mount -f "{{json .Mounts }}" | jq
    "Source": "/home/docker/dockerlabs/bind.html",
    "Destination": "/usr/share/nginx/html/index.html",
 ```
+# Validar el archivo dentro del contenedor:
+```vim
+docker exec -it demo-mount sh
+
+cd /usr/share/nginx/html
+ls
+cat index.html
+sudo "TEXTO" > index.html
+```
 
 # 3. Crear un volúmen
 ```vim
