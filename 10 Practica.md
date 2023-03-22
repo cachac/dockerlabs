@@ -24,10 +24,10 @@ yarn install --production
 ["node", "src/index.js"]
 ```
 
-# 4. Construir la imagen y ejecutar el contenedor (Puede tardar varios minutos construyendo):
-## 4.1. Asignarle un tag a la imagen
-## 4.2. Asignarle un nombre al contenedor
-## 4.3. Utilizar los puertos 8080:3000
+# 4. Construir la imagen y ejecutar el contenedor con los siguientes parámetros (Puede tardar varios minutos construyendo):
+- Asignarle un tag a la imagen
+- Asignarle un nombre al contenedor
+- Utilizar los puertos 8080:3000
 
 # 5. Probar en browser: http://<ip publica | dominio> y agregar tareas.
 
