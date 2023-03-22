@@ -1,4 +1,4 @@
-# 7. Networking <!-- omit in TOC -->
+# 07. Networking <!-- omit in TOC -->
 
 # 1. Validar la red en host docker0
 

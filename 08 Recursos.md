@@ -1,4 +1,4 @@
-# 9. Administración de Recursos <!-- omit in TOC -->
+# 08. Administración de Recursos <!-- omit in TOC -->
 
 > [info](https://docs.docker.com/config/containers/resource_constraints/)
 

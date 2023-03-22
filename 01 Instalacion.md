@@ -1,4 +1,4 @@
-# 1. Instalación <!-- omit in TOC -->
+# 01. Instalación <!-- omit in TOC -->
 
 ## 1. Instalación en Ubuntu server
 ```vim

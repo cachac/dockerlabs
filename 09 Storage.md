@@ -1,4 +1,4 @@
-# 10. Storage <!-- omit in TOC -->
+# 09. Storage <!-- omit in TOC -->
 
 # 1. Crear Punto de montaje (bind mount)
 ```vim

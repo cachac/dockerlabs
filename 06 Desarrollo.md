@@ -1,4 +1,4 @@
-# 6. Desarrollo <!-- omit in TOC -->
+# 06. Desarrollo <!-- omit in TOC -->
 
 # 1. Dockerfile Stages: crear el archivo demo.dockerfile
 ```vim

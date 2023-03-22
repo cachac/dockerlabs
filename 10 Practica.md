@@ -1,4 +1,4 @@
-# 11. Práctica #2 <!-- omit in TOC -->
+# 10. Práctica #2 <!-- omit in TOC -->
 
 # 1. Clonar el repositorio: docker/getting-started
 
