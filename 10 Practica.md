@@ -5,7 +5,7 @@
 ```vim
 git clone https://github.com/docker/getting-started.git
 ```
-# 2. Aseguar que no hayan contenedores en ejecución
+# 2. Asegurar que no hayan contenedores en ejecución
 # 3. En la carpeta getting-started/app, crear un archivo Dockerfile Con los siguientes pasos:
 ## 3.1. Utilizar la imagen node:18-alpine
 ## 3.2. Utilizar el comando RUN para descargar las librerias python3, g++ y make
@@ -14,7 +14,7 @@ Utilizar:
 apk add --no-cache python3 g++ make
 ```
 ## 3.3. Utilizar como directorio de inicio: /app
-## 3.4. Copiar todo el contenido de la carpeta en el contenedor (COPY . .)
+## 3.4. Copiar todo el contenido de la carpeta en el contenedor (  COPY .  .  )
 ## 3.5. Utilizar el comando RUN para instalar las librerias Yarn (NodeJS):
 ```vim
 yarn install --production
