@@ -72,6 +72,7 @@ docker run -d --name primero redis:3.2.11-alpine
 
 ## 7. Ver imágenes en ejecución y detenidas
 > [Opciones](https://docs.docker.com/engine/reference/commandline/ps/)
+> [JSON PATH](https://goessner.net/articles/JsonPath/index.html#e2)
 
 ```vim
 docker ps
