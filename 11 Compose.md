@@ -1,4 +1,4 @@
-# 12. Compose <!-- omit in TOC -->
+# 11. Compose <!-- omit in TOC -->
 
 # 1. Instalación
 

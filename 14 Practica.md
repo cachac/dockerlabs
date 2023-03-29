@@ -1,4 +1,4 @@
-# 13. Práctica Compose <!-- omit in TOC -->
+# 14. Práctica Compose <!-- omit in TOC -->
 
 # 1. Crear un archivo docker-compose.yml con las siguientes características:
 
