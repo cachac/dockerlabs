@@ -1,0 +1,54 @@
+version: '3.7'
+
+networks:
+  net-lab-compose:
+    name: net-lab-compose
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 11.0.0.0/27
+          gateway: 11.0.0.1
+
+services:
+  multidocker:
+    build:
+      dockerfile: ./stage.dockerfile
+      context: .
+    image: multidocker
+    hostname: multidocker
+    restart: always
+    mem_limit: 50m
+    memswap_limit: 50m
+    cpus: 0.3
+    networks:
+      net-lab-compose:
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:8080']
+      interval: 30s #1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  loadbalancer:
+    container_name: loadbalancer
+    image: nginx:stable-alpine
+    hostname: loadbalancer
+    restart: always
+    mem_limit: 50m
+    memswap_limit: 50m
+    cpus: 0.3
+    ports:
+    - 8080:80
+    networks:
+      net-lab-compose:
+    volumes:
+      - ./dockerfiles_demo/compose-loadbalancer.conf:/etc/nginx/conf.d/default.conf:ro
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost']
+      interval: 30s #1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    depends_on:
+      - multidocker

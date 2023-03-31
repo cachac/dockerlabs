@@ -56,6 +56,7 @@ dockerfile: ./stage.dockerfile
 
 # 5. Levantar los servicios:
 ```vim
+docker images
 docker-compose up
 ```
 
@@ -67,6 +68,11 @@ docker-compose up
 ```yaml
 ports:
   - 8080:8080
+```
+
+# Ejecutar y probar en browser
+```
+docker-compose up -d
 ```
 
 # 8. Construir un Docker-Compose Avanzado
@@ -148,19 +154,27 @@ docker-compose build
 ```
 > monta el archivo dockerfiles_demo/compose-loadbalancer.conf con las rutas a los contenedores de la app web
 
-### 8.4.4. Construir
-```vim
-docker-compose build
-```
-> Successfully tagged loadbalancer:latest
-
 
 ## 8.5. Construir y ejecutar
 ```vim
 docker-compose up --build -d
 ```
+> levanta loadbalancer
+> levanta contenedor multidocker
+
+## Comprobar estado de salud
+```
+docker-compose ps
+```
+> Loadbalancer Restarting
 
 
+## Ver logs
+```
+docker-compose logs
+```
+> El loadbalancer espera 3 copias
+> host not found in upstream ...
 ## 8.6. Escalar 3 replicas
 ```
 docker-compose down
@@ -173,13 +187,8 @@ docker-compose up -d --scale multidocker=3
 
 ## 8.9. Listar contenedores
 ```vim
-docker-compose ps
+watch docker-compose ps
 docker-compose logs -f
-```
-
-## 8.10. Detener y eliminar contenedores
-```vim
-docker-compose down
 ```
 
 ## 8.14. Validar en browser
@@ -189,5 +198,5 @@ docker-compose down
 ```vim
 docker-compose down
 
-docker image prune
+docker ps -a
 ```
