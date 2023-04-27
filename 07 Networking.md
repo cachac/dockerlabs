@@ -20,10 +20,10 @@ docker network ls
 
 docker network remove lab
 ```
-### 1.1.2. Agregar el bloque CIDR 100.0.0.0/24.
+### 1.1.2. Agregar el bloque CIDR 192.168.0.0/24.
 
 ```vim
-docker network create --driver bridge --subnet 100.0.0.0/24 net-lab
+docker network create --driver bridge --subnet 192.168.0.0/24 net-lab
 
 docker network ls
 
@@ -40,9 +40,9 @@ docker pull wbitt/network-multitool
 
 ## 1.3. Crear contenedores en la red net-lab y asignar ip estáticas:
 ```vim
-docker run --name server_a --network net-lab -d --ip 100.0.0.2 wbitt/network-multitool
-docker run --name server_b --network net-lab -d --ip 100.0.0.3 wbitt/network-multitool
-docker run --name server_c --network net-lab -d --ip 100.0.0.4 wbitt/network-multitool
+docker run --name server_a --network net-lab -d --ip 192.168.0.2 wbitt/network-multitool
+docker run --name server_b --network net-lab -d --ip 192.168.0.3 wbitt/network-multitool
+docker run --name server_c --network net-lab -d --ip 192.168.0.4 wbitt/network-multitool
 ```
 
 # 2. Mostrar la información de server_a:
@@ -60,6 +60,8 @@ docker inspect server_a -f "{{json .NetworkSettings.Networks }}" | jq
 # 3. Probar DNS de network lab:
 ```vim
 docker exec server_a ping server_b
+docker exec server_a traceroute server_b
+docker exec server_a dig  server_b
 ```
 
 # 4. Crear contenedor en red tipo host:
@@ -67,6 +69,7 @@ docker exec server_a ping server_b
 docker run --name host_a --network host -d wbitt/network-multitool
 
 docker ps -a
+docker logs host_a
 ```
 > Error: bind() to 0.0.0.0:80 failed (98: Address in use)
 
@@ -90,6 +93,7 @@ docker inspect host_a -f "{{json .NetworkSettings.Networks }}" | jq
 
 ```vim
 docker exec host_a ip a
+docker exec server_a ip a
 ```
 
 # 5. Crear una nueva red net-privada y correr un contenedor
@@ -107,6 +111,10 @@ docker inspect server_privado_a -f "{{json .NetworkSettings.Networks }}" | jq
 ping <'ip_server_privado_a'>
 
 docker exec server_a ping server_privado_a
+docker exec server_a ping 172.19.0.2
+docker exec server_a traceroute 172.19.0.2
+
+docker exec server_a ping 172.19.0.1
 ```
 
 > Hay comunicación entre el host y la red net-privada

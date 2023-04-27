@@ -22,7 +22,6 @@ docker run -d --rm --name demo-mount -p 8080:80 -v ~/dockerlabs/bind.html:/usr/s
 
 ## 1.3. Comprobar en el browser
 
-> Los archivos son persistentes!!
 
 ## 1.4. Editar el punto de montaje y refrescar el browser
 
