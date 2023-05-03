@@ -14,7 +14,7 @@ Utilizar:
 apk add --no-cache python3 g++ make
 ```
 ## 3.3. Utilizar como directorio de inicio: /app
-## 3.4. Copiar todo el contenido de la carpeta en el contenedor (  COPY .  .  )
+## 3.4. Copiar todo el contenido de la carpeta /getting-started/app en el contenedor (  COPY .  .  )
 ## 3.5. Utilizar el comando RUN para instalar las librerias Yarn (NodeJS):
 ```vim
 yarn install --production
