@@ -1,19 +1,43 @@
 ### STAGE 1: Build ###
-FROM cachac/dockerlabs_base:node14 as build
+FROM node:16.15.0-alpine3.14 as build
 
-WORKDIR /usr/src/app
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
 
+COPY . .
+RUN npm run generate --fail-on-error
+RUN npm prune --production
 
-
-
-### STAGE 2: NGINX ###
-FROM nginx:stable-alpine as release
-COPY --from=build /usr/src/app/dist /usr/share/nginx/html
-
+### STAGE 2: DEPLOY ###
+FROM nginx:stable-alpine
+COPY --from=build /app/dist /usr/share/nginx/html
 RUN rm /etc/nginx/conf.d/default.conf
-
 COPY nginx/nginx.conf /etc/nginx/conf.d
 
 EXPOSE 8080
 
 CMD ["nginx", "-g", "daemon off;"]
+
+# docker build . dockerfile -t dockerlabs:2.0
+# docker run --rm --name dockerlabs:2.0 -p 8080:8080  dockerlabs:latest
+
+
+
+
+
+
+# WORKDIR /usr/src/app
+
+
+# ### STAGE 2: NGINX ###
+# FROM nginx:stable-alpine as release
+# COPY --from=build /usr/src/app/dist /usr/share/nginx/html
+
+# RUN rm /etc/nginx/conf.d/default.conf
+
+# COPY nginx/nginx.conf /etc/nginx/conf.d
+
+# EXPOSE 8080
+
+# CMD ["nginx", "-g", "daemon off;"]

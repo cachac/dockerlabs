@@ -1,0 +1,19 @@
+{
+  "name": "dockerlabs-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/main.js --ext js"
+  },
+  "author": "Carlos Chacon",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "helmet": "^6.1.5",
+    "nodemon": "^2.0.22",
+    "winston": "^3.8.2"
+  }
+}

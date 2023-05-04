@@ -2,7 +2,9 @@
   <div class="home">
     <img alt="Docker logo" src="~/static/assets/img/docker.png" />
     <h1>Docker Labs</h1>
-    <h2>-{{ version }}-</h2>
+
+    <nuxt-link :to="{ name: 'api' }">API</nuxt-link>
+
     <p>
       Aplicación de propósito de <b>pruebas de concepto</b> en la nube. <br />
       El objetivo es implementar una arquitectura de contenedores Docker.
@@ -13,12 +15,6 @@
 <script>
 export default {
   name: 'Home',
-  // props: ['id'],
-  computed: {
-    version() {
-      return this.$config.NUXT_ENV_APP
-    },
-  },
 }
 </script>
 

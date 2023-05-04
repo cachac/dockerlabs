@@ -28,8 +28,6 @@ export default {
 
   buildModules: ['@nuxtjs/eslint-module'],
 
-  modules: [],
-
   build: {},
 
   publicRuntimeConfig: {
