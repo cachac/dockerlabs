@@ -22,20 +22,3 @@ CMD ["nginx", "-g", "daemon off;"]
 # docker build . dockerfile -t dockerlabs:2.0
 # docker run -d --rm --name dockerlabs -p 8080:8080  --network cloudNetwork dockerlabs:2.0
 
-
-
-
-# WORKDIR /usr/src/app
-
-
-# ### STAGE 2: NGINX ###
-# FROM nginx:stable-alpine as release
-# COPY --from=build /usr/src/app/dist /usr/share/nginx/html
-
-# RUN rm /etc/nginx/conf.d/default.conf
-
-# COPY nginx/nginx.conf /etc/nginx/conf.d
-
-# EXPOSE 8080
-
-# CMD ["nginx", "-g", "daemon off;"]
