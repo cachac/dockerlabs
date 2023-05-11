@@ -44,7 +44,7 @@ docker exec -it demo-mount sh
 cd /usr/share/nginx/html
 ls
 cat index.html
-sudo "TEXTO" > index.html
+> index.html
 ```
 
 # 3. Crear un volúmen
