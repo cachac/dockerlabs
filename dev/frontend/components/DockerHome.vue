@@ -3,6 +3,8 @@
     <img alt="Docker logo" src="~/static/assets/img/docker.png" />
     <h1>Docker Labs</h1>
 
+		<h2>-{{ id }}-</h2>
+
     <nuxt-link :to="{ name: 'api' }">API</nuxt-link>
 
     <p>
@@ -15,6 +17,7 @@
 <script>
 export default {
   name: 'Home',
+	props: ['id'],
 }
 </script>
 

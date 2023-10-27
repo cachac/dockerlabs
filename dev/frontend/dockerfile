@@ -6,19 +6,21 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
-RUN npm run generate --fail-on-error
-RUN npm prune --production
+RUN npm run build
+# RUN npm run generate --fail-on-error
+# RUN npm prune --production
 
 ### STAGE 2: DEPLOY ###
-FROM nginx:stable-alpine
-COPY --from=build /app/dist /usr/share/nginx/html
-RUN rm /etc/nginx/conf.d/default.conf
-COPY nginx/nginx.conf /etc/nginx/conf.d
+# FROM nginx:stable-alpine
+# COPY --from=build /app/dist /usr/share/nginx/html
+# RUN rm /etc/nginx/conf.d/default.conf
+# COPY nginx/nginx.conf /etc/nginx/conf.d
 
 EXPOSE 8080
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["npm", "start"]
 
-# docker build . -t dockerlabs:2.0
-# docker run -d --rm --name dockerlabs -p 8080:8080  --network cloudNetwork dockerlabs:2.0
+# docker build . -t dockerlabs:3.0
+# docker run -d --rm --name dockerlabs -p 8080:8080  --network cloudNetwork dockerlabs:3.0
+# docker run -d --rm --name dockerlabs -p 8080:8080  dockerlabs:3.0
 

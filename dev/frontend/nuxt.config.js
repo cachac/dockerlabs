@@ -1,5 +1,5 @@
 export default {
-  target: 'static',
+  // target: 'static',
   server: {
     host: '0.0.0.0',
     strictPort: true,
@@ -23,7 +23,7 @@ export default {
   css: [],
 
   // plugins: [{ src: '~/plugins/containerID', mode: 'server' }],
-
+  serverMiddleware: ['~/server-middleware/docker'],
   components: true,
 
   buildModules: ['@nuxtjs/eslint-module'],

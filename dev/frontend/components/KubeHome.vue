@@ -2,7 +2,7 @@
   <div class="home">
     <img alt="Kube logo" src="~/static/assets/img/kubernetes.png" />
     <h1>Kube Labs</h1>
-    <h2>-{{ version }}-</h2>
+    <h2>-{{ id }}-</h2>
     <p>
       Aplicación de propósito de <b>pruebas de concepto</b> en la nube. <br />
       El objetivo es implementar una arquitectura de kubernetes.
@@ -13,7 +13,7 @@
 <script>
 export default {
   name: 'Home',
-  // props: ['id'],
+  props: ['id'],
   computed: {
     version() {
       return this.$config.NUXT_ENV_APP
@@ -45,4 +45,3 @@ body {
   background-position: center 2em, center center;
 }
 </style>
-
