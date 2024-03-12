@@ -55,7 +55,7 @@ docker run -p 8080:8080 dockerlabs:latest
 ## 2.4. Descargar la imagen original node:14.11.0-alpine3.12
 
 ```vim
-docker pull node:14.11.0-alpine3.12
+docker pull cachac/dockerlabs_base:node14
 
 docker images
 ```

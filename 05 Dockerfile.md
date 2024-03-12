@@ -19,6 +19,8 @@ COPY Hello_docker.html .
 
 RUN cp Hello_docker.html index.html
 
+EXPOSE 80
+
 CMD nginx -g 'daemon off;'
 ```
 
@@ -80,7 +82,7 @@ docker ps
 docker logs -f website
 ```
 ## 4.1. Probar el sitio web
-Con la ip pública del host o el dominio <'lab'>.dockerlabs.tk
+Con la ip pública del host o el dominio <'lab'>.dockerlabs.dev
 
 > Validar los logs del contenedor
 
@@ -90,9 +92,9 @@ Cambiar en el docker file las siguientes líneas:
 ```vim
 FROM nginx
 
-ARG AUTOR
+ARG ENVAUTOR
 
-ENV AUTOR=$AUTOR
+ENV ENV_AUTOR=$AUTOR
 
 WORKDIR /usr/share/nginx/html
 
