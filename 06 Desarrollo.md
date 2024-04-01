@@ -152,7 +152,7 @@ docker ps
 ```
 
 ```vim
-docker run --name loadbalancer -dp 8080:80 --network lab loadbalancer
+docker run --name loadbalancer -dp 8080:80 --restart on-failure --network lab loadbalancer
 
 docker ps
 
