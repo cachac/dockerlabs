@@ -70,22 +70,22 @@ ports:
   - 8080:8080
 ```
 
-# Ejecutar y probar en browser
+# 8. Ejecutar y probar en browser
 ```
 docker-compose up -d
 ```
 
-# 8. Construir un Docker-Compose Avanzado
+# 9. Construir un Docker-Compose Avanzado
 > [yaml](./compose_loadbalancer/advanced.yml)
-## 8.1. Eliminar contenedores del lab anterior
+## 9.1. Eliminar contenedores del lab anterior
 ```vim
 docker-compose down
 ó
 docker rm -f dockerlabs
 ```
-## 8.2. Editar el archivo docker-compose.yml
+## 9.2. Editar el archivo docker-compose.yml
 > Eliminar el primer contenedor del archivo
-## 8.3. Crear un bloque networks:
+## 9.3. Crear un bloque networks:
 ```yaml
 networks:
   net-lab-compose:
@@ -98,9 +98,9 @@ networks:
           gateway: 11.0.0.1
 ```
 
-## 8.4. En el bloque de services crear 4 contenedores con los siguientes atributos:
+## 9.4. En el bloque de services crear 4 contenedores con los siguientes atributos:
 
-### 8.4.1. Contenedor Aplicación Web:
+### 9.4.1. Contenedor Aplicación Web:
 ```yaml
   multidocker:
     build:
@@ -122,12 +122,12 @@ networks:
       start_period: 30s
 ```
 
-### 8.4.2. Construir
+### 9.4.2. Construir
 ```vim
 docker-compose build
 ```
 
-### 8.4.3. Contenedor Load Balancer:
+### 9.4.3. Contenedor Load Balancer:
 ```yaml
   loadbalancer:
     container_name: loadbalancer
@@ -155,27 +155,27 @@ docker-compose build
 > monta el archivo dockerfiles_demo/compose-loadbalancer.conf con las rutas a los contenedores de la app web
 
 
-## 8.5. Construir y ejecutar
+## 9.5. Construir y ejecutar
 ```vim
 docker-compose up --build -d
 ```
 > levanta loadbalancer
 > levanta contenedor multidocker
 
-## Comprobar estado de salud
+## 9.6. Comprobar estado de salud
 ```
 docker-compose ps
 ```
 > Loadbalancer Restarting
 
 
-## Ver logs
+## 9.7. Ver logs
 ```
 docker-compose logs
 ```
 > El loadbalancer espera 3 copias
 > host not found in upstream ...
-## 8.6. Escalar 3 replicas
+## 9.8. Escalar 3 replicas
 ```
 docker-compose down
 
@@ -185,16 +185,17 @@ docker-compose up -d --scale multidocker=3
 > Crea tres contenedores "dockerlabs_multidocker_x"
 
 
-## 8.9. Listar contenedores
+## 9.9. Listar contenedores
 ```vim
 watch docker-compose ps
 docker-compose logs -f
 ```
+## 9.10. Validar errores en los logs y repararlos
 
-## 8.14. Validar en browser
+## 9.11. Validar en browser
 
 
-## 8.15. Limpiar
+## 9.12. Limpiar
 ```vim
 docker-compose down
 
