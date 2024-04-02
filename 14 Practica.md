@@ -18,7 +18,9 @@
 
 > Puerto interno: 3000
 
-> Volumen: todo-data. Ver: https://docs.docker.com/compose/compose-file/compose-file-v3/#volume-configuration-reference
+> Volumen: todo-data.
+
+Ver: https://docs.docker.com/compose/compose-file/compose-file-v3/#volume-configuration-reference
 
 > Ruta interna para el volumen: /etc/todos
 
