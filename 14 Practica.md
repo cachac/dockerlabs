@@ -14,9 +14,9 @@
 
 > Límite cpu: 0.3
 
-> Puerto externo: 8080
+> Puerto externo (host): 8080
 
-> Puerto interno: 3000
+> Puerto interno (contenedor): 3000
 
 > Crear un volumen con el nombre: todo-data.
 
@@ -31,7 +31,7 @@ Ejemplo de volúmenes: https://docs.docker.com/compose/compose-file/compose-file
 # 4. Agregar persistencia con una BD MySql para el almacenamiento de las tareas:
 
 ## 4.1. Volúmenes
-> En el servicio app: eliminar el mapeo del contenedor: - todo-data:/etc/todos
+> En el servicio APP: eliminar el mapeo del contenedor: - todo-data:/etc/todos
 
 > Eliminar el volumen todo-data
 
@@ -54,7 +54,7 @@ Ejemplo de volúmenes: https://docs.docker.com/compose/compose-file/compose-file
 
 > Volumen: mapear el nuevo volumen "todo-mysql-data" con la ruta: /var/lib/mysql
 
-## 4.3. Crear las variables de entorno en el servicio app
+## 4.3. Crear las variables de entorno en el servicio APP
 ```yaml
     environment:
       MYSQL_HOST: mysql
@@ -63,12 +63,12 @@ Ejemplo de volúmenes: https://docs.docker.com/compose/compose-file/compose-file
       MYSQL_DB: todos
 ```
 
-> Recomendación: En ambientes productivos no se deben publicar archivos con información sensitiva.
+> Recomendación: En ambientes productivos no se deben publicar archivos con información sensible.
 
-## 4.4. Agregar un dependencia en app para esperar el despliegue de Mysql
+## 4.4. Agregar una dependencia en APP para esperar el despliegue de Mysql
 
 ## 4.5. Ejecutar de forma desconectada (-d) y comprobar en browser
 
-## 4.6. Reiniciar los contenedores para comprobar persistencia
+## 4.6. Reiniciar los contenedores para comprobar la persistencia
 
 # 5. Checkpoint
