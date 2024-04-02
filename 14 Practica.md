@@ -22,7 +22,7 @@
 
 > Montar el volumen en la ruta del contenedor: /etc/todos
 
-Ver: https://docs.docker.com/compose/compose-file/compose-file-v3/#volume-configuration-reference
+Ejemplo de volúmenes: https://docs.docker.com/compose/compose-file/compose-file-v3/#volume-configuration-reference
 
 # 2. Levantar el contenedor en modo detached (-d). Luego probar la aplicación agregando algunas tareas
 
