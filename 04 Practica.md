@@ -24,7 +24,7 @@
 
 >                         latest Pulling from library/mysql
 
-# 9. Listar las imágenes y comprobar la imagen mysql
+# 9. Listar las imágenes y comprobar que exista la imagen mysql
 
 # 10. Ver los logs del contenedor practica-db. ¿Cuál es el error que está mostrando?
 
