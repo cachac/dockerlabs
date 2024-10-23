@@ -71,11 +71,11 @@ docker run --name host_a --network host -d wbitt/network-multitool
 docker ps -a
 docker logs host_a
 ```
-> Error: bind() to 0.0.0.0:80 failed (98: Address in use)
+> Error de puertos: bind() to 0.0.0.0:80 failed (98: Address in use)
 
 > El puerto 80 ya está siendo utilizado por el host
 
-## 4.1. Cambiar el puerto de escucha del contenedor
+## 4.1. En caso de error: Cambiar el puerto de escucha del contenedor
 
 Usando variables:
 ```vim
@@ -108,6 +108,7 @@ docker run -d --name server_privado_a --network net-privada wbitt/network-multit
 
 docker inspect server_privado_a -f "{{json .NetworkSettings.Networks }}" | jq
 
+# desde la vm probar la ip del contenedor:
 ping <'ip_server_privado_a'>
 
 docker exec server_a ping server_privado_a
