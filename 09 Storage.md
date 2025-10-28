@@ -2,7 +2,7 @@
 
 # 1. Crear Punto de montaje (bind mount)
 ```vim
-docker run -d --rm --name demo-mount -p 8080:80 nginx:stable-alpine
+docker run -d --name demo-mount -p 8080:80 nginx:stable-alpine
 
 docker inspect demo-mount -f "{{json .Mounts }}"
 ```
@@ -17,7 +17,7 @@ docker stop demo-mount
 ## 1.2. Crear el contenedor mapeando un archivo local
 
 ```vim
-docker run -d --rm --name demo-mount -p 8080:80 -v ~/dockerlabs/bind.html:/usr/share/nginx/html/index.html nginx:stable-alpine
+docker run -d --name demo-mount -p 8080:80 -v ~/dockerlabs/bind.html:/usr/share/nginx/html/index.html nginx:stable-alpine
 ```
 
 ## 1.3. Comprobar en el browser
@@ -72,6 +72,8 @@ docker run -it --rm --name demo-vol --mount source=data,destination=/data ubuntu
 > :ro = modo solo lectura
 
 > -it = habilita la terminal interactiva (sh)
+
+> --rm = elimina el contenedor al detenerlo
 
 ## 3.2. Ingresamos al directorio data y creamos un archivo
 

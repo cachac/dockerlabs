@@ -7,7 +7,11 @@
 Listar las estadísticas de contenedores y revisar el MEM/LIMIT
 
 ```vim
-docker run -d --rm --memory-swap 100m --memory 100m --name mem-demo dockerlabs
+# sin limite
+docker run -d --name sin-limite dockerlabs
+
+# con limite
+docker run -d --memory-swap 100m --memory 100m --name mem-demo dockerlabs
 
 docker stats
 Ó
@@ -25,7 +29,7 @@ docker run -d --rm --cpus="0.5" --memory 100m --name cpu-demo dockerlabs
 
 Ó (con notación en microsegundos)
 
-docker run -d --rm --cpu-period=100000 --cpu-quota=50000 --name cpu-demo dockerlabs
+docker run -d --cpu-period=100000 --cpu-quota=50000 --name cpu-demo dockerlabs
 
 docker stats cpu-demo
 
@@ -42,6 +46,12 @@ docker exec -d cpu-demo stress-ng --matrix 1 -t 1m
 ```
 
 > Revisar que el consumo de CPU no sobrepasa el ~50%
+
+En otro tab probar htop de la VM:
+
+```vim
+htop
+```
 
 
 ## Limpieza
