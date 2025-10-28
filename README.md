@@ -25,3 +25,4 @@ Tabla de contenido:
 ## 17. [Extra: ELK](/17.%20Extra.%20ELK.md)
 ## 18. [Extra: Proxy TLS](/18.%20Extra%20Proxy.md)
 ## 19. [Extra: Confianza de Contenido](/19.%20Extra%20Confianza.md)
+## 20. [Extra: Logs](/20.Logs.md)
