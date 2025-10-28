@@ -157,7 +157,7 @@ docker-compose build
 
 ## 9.5. Construir y ejecutar
 ```vim
-docker-compose up --build -d
+docker-compose ps  --build -d
 ```
 > levanta loadbalancer
 > levanta contenedor multidocker
