@@ -1,6 +1,7 @@
 # 1. Compose <!-- omit in TOC -->
 
-# 2. Instalación
+# 2. Opcional: Instalación
+Las versiones nuevas de Docker ya incorporan Compose.
 
 > [Info](https://docs.docker.com/compose/install/ )
 
@@ -14,7 +15,7 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
 ## 2.1. Comprobar versión
 ```vim
-docker-compose --version
+docker compose --version
 ```
 # 3. Construir un Docker-Compose básico, con el nombre docker-compose.yml
 
@@ -41,8 +42,8 @@ Error conocido:
 # 4. Construir la imágen
 > [Info](https://docs.docker.com/compose/reference/build/)
 
-```vim
-docker-compose build
+```sh
+docker compose build
 ```
 
 > Unable to evaluate symlinks in Dockerfile path: lstat /home/docker/stage.dockerfile: no such file or directory
@@ -55,9 +56,9 @@ dockerfile: ./stage.dockerfile
 > Successfully tagged dockerlabs:version_compose
 
 # 5. Levantar los servicios:
-```vim
+```sh
 docker images
-docker-compose up
+docker compose up
 ```
 
 # 6. Probar en browser
@@ -71,8 +72,8 @@ ports:
 ```
 
 # 8. Ejecutar y probar en browser
-```
-docker-compose up -d
+```sh
+docker compose up -d
 ```
 
 # 9. Construir un Docker-Compose Avanzado
@@ -129,7 +130,7 @@ docker compose config
 # otra forma de validar
 docker compose config --quiet && printf "OK\n" || printf "ERROR\n"
 
-docker-compose build
+docker compose build
 ```
 
 ### 9.4.3. Contenedor Load Balancer:
@@ -161,39 +162,39 @@ docker-compose build
 
 
 ## 9.5. Construir y ejecutar
-```vim
-docker-compose ps  --build -d
+```sh
+docker compose up  --build -d
 ```
 > levanta loadbalancer
 > levanta contenedor multidocker
 
 ## 9.6. Comprobar estado de salud
-```
-docker-compose ps
+```sh
+docker compose ps
 ```
 > Loadbalancer Restarting
 
 
 ## 9.7. Ver logs
-```
-docker-compose logs
+```sh
+docker compose logs
 ```
 > El loadbalancer espera 3 copias
 > host not found in upstream ...
 ## 9.8. Escalar 3 replicas
-```
-docker-compose down
+```sh
+docker compose down
 
-docker-compose up -d --scale multidocker=3
+docker compose up -d --scale multidocker=3
 ```
 
 > Crea tres contenedores "dockerlabs_multidocker_x"
 
 
 ## 9.9. Listar contenedores
-```vim
-watch docker-compose ps
-docker-compose logs -f
+```sh
+watch docker compose ps
+docker compose logs -f
 ```
 ## 9.10. Validar errores en los logs y repararlos
 
@@ -201,8 +202,8 @@ docker-compose logs -f
 
 
 ## 9.12. Limpiar
-```vim
-docker-compose down
+```sh
+docker compose down
 
 docker ps -a
 ```
