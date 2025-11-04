@@ -122,8 +122,13 @@ networks:
       start_period: 30s
 ```
 
-### 9.4.2. Construir
-```vim
+### 9.4.2. Validar y  Construir
+```sh
+docker compose config
+
+# otra forma de validar
+docker compose config --quiet && printf "OK\n" || printf "ERROR\n"
+
 docker-compose build
 ```
 
