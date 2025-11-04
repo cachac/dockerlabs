@@ -2,8 +2,6 @@
 
 # 1. Crear un archivo docker-compose.yml con las siguientes características:
 
-> Versión: 3.7
-
 > Nombre del contenedor de aplicacion: app
 
 > Imagen: cachac/todo-demo:1.0
