@@ -92,7 +92,7 @@ Cambiar en el docker file las siguientes líneas:
 ```vim
 FROM nginx
 
-ARG ENVAUTOR
+ARG ENV_AUTOR
 
 ENV ENV_AUTOR=$AUTOR
 
