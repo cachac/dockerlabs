@@ -131,6 +131,8 @@ Errores conocidos:
 
 ## Ver la variable de entorno $AUTOR
 ```vim
+docker exec website ls
+
 docker exec website env
 ```
 
