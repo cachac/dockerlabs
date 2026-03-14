@@ -133,8 +133,16 @@ Errores conocidos:
 ```vim
 docker exec website ls
 
+docker exec website pwd
+
 docker exec website env
 ```
+# Validar el Kernel del contenedor y compararlo con la VM host
+```vim
+# host
+uname -r
+# container
+docker exec website uname -r
+```
 
-
-
+# Opcional: Cambia el estilo del index.html
