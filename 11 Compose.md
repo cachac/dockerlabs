@@ -15,7 +15,7 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
 ## 2.1. Comprobar versión
 ```vim
-docker compose --version
+docker compose version
 ```
 # 3. Construir un Docker-Compose básico, con el nombre docker-compose.yml
 
