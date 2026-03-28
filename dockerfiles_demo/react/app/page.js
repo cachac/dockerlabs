@@ -10,12 +10,7 @@ export default function Home() {
     setResult("Loading...");
 
     try {
-      const res = await fetch(`http://${ip}:3000`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await fetch(`http://${ip}:3000`);
 
       if (!res.ok) {
         throw new Error(`HTTP ${res.status}`);
@@ -39,7 +34,7 @@ export default function Home() {
           value={ip}
           onChange={(e) => setIp(e.target.value)}
           style={{ marginLeft: 10, padding: 8 }}
-          placeholder="192.168.1.100"
+          placeholder="IP_ADDRESS"
         />
       </div>
 
